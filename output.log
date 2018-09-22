@@ -1,0 +1,2218 @@
+[main] INFO  o.o.c.languages.GoClientCodegen - Environment variable GO_FMT_PATH not defined so Go code may not be properly formatted. To define it, try 'export GO_FMT_PATH=/usr/local/bin/gofmt' (Linux/Mac)
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Disk/properties/label is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Disk/properties/filesystem is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/LinodeType/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/LinodeType/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/image is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/root_pass is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/authorized_keys is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/authorized_users is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/stackscript_id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/stackscript_data is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Linode/properties/label is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Linode/properties/tags is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Linode/properties/group is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/image is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/root_pass is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/authorized_keys is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/authorized_users is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/stackscript_id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/stackscript_data is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/NodeBalancer/properties/label is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/NodeBalancer/properties/client_conn_throttle is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PersonalAccessToken/properties/label is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] INFO  o.o.codegen.DefaultGenerator - Model body_20 (marked as unused due to form parameters) is generated due to skipFormModel=false (default)
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Volume/properties/label is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Volume/properties/size is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Disk/properties/filesystem is not defined
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_account.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Account.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_account_credit_card.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/AccountCreditCard.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_account_settings.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/AccountSettings.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_authorized_app.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/AuthorizedApp.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_backup.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Backup.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_backup_disks.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/BackupDisks.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_1.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body1.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_10.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body10.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_11.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body11.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_12.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body12.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_13.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body13.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_14.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body14.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_15.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body15.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_16.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body16.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_17.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body17.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_18.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body18.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_19.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body19.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_2.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body2.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_20.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body20.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_21.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body21.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_22.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body22.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_23.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body23.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_24.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body24.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_25.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body25.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_26.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body26.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_3.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body3.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_4.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body4.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_5.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body5.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_6.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body6.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_7.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body7.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_8.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body8.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_body_9.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Body9.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_credit_card.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/CreditCard.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_device.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Device.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_devices.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Devices.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_disk.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Disk.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_disk_request.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/DiskRequest.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_domain.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Domain.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_domain_record.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/DomainRecord.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_error_object.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ErrorObject.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_event.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Event.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_event_entity.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/EventEntity.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_grant.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Grant.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_grants_response.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/GrantsResponse.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_grants_response_global.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/GrantsResponseGlobal.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_i_pv6_pool.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/IPv6Pool.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_i_pv6_range.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/IPv6Range.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_image_private.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ImagePrivate.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_image_public.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ImagePublic.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse200.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_1.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2001.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_10.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20010.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_11.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20011.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_12.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20012.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_12_snapshot.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20012Snapshot.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_13.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20013.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_14.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20014.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_15.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20015.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_16.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20016.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_17.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20017.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_18.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20018.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_19.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20019.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_2.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2002.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_20.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20020.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_21.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20021.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_22.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20022.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_23.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20023.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_24.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20024.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_25.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20025.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_26.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20026.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_27.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20027.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_28.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20028.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_29.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20029.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_3.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2003.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_30.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20030.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_31.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20031.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_32.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20032.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_33.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20033.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_34.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20034.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_35.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20035.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_36.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20036.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_37.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20037.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_38.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse20038.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_4.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2004.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_5.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2005.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_6.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2006.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_7.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2007.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_8.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2008.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_200_9.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponse2009.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_inline_response_default.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InlineResponseDefault.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_invoice.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Invoice.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_invoice_item.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/InvoiceItem.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_ip_address.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/IpAddress.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_ip_address_private.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/IpAddressPrivate.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_ip_address_v6_link_local.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/IpAddressV6LinkLocal.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_ip_address_v6_slaac.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/IpAddressV6Slaac.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_kernel.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Kernel.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Linode.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_alerts.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeAlerts.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_backups.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeBackups.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_backups_schedule.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeBackupsSchedule.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_base.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeBase.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_config.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeConfig.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_config_helpers.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeConfigHelpers.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_request.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeRequest.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_specs.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeSpecs.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_stats.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeStats.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_stats_io.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeStatsIo.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_stats_netv4.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeStatsNetv4.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_stats_netv6.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeStatsNetv6.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_type.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeType.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_type_addons.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeTypeAddons.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_type_addons_backups.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeTypeAddonsBackups.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_type_addons_backups_price.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeTypeAddonsBackupsPrice.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_linode_type_price.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeTypePrice.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_longview_client.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LongviewClient.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_longview_client_apps.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LongviewClientApps.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_longview_subscription.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LongviewSubscription.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_longview_subscription_price.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LongviewSubscriptionPrice.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_managed_contact.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedContact.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_managed_contact_phone.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedContactPhone.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_managed_credential.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedCredential.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_managed_issue.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedIssue.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_managed_issue_entity.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedIssueEntity.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_managed_linode_settings.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedLinodeSettings.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_managed_linode_settings_ssh.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedLinodeSettingsSsh.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_managed_service.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedService.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_networkingipv4assign_assignments.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Networkingipv4assignAssignments.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_node_balancer.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancer.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_node_balancer_config.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancerConfig.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_node_balancer_config_nodes_status.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancerConfigNodesStatus.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_node_balancer_node.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancerNode.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_node_balancer_stats.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancerStats.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_node_balancer_stats_data.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancerStatsData.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_node_balancer_stats_data_traffic.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancerStatsDataTraffic.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_node_balancer_transfer.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancerTransfer.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_notification.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Notification.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_notification_entity.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NotificationEntity.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_o_auth_client.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/OAuthClient.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_pagination_envelope.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/PaginationEnvelope.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_pay_pal.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/PayPal.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_pay_pal_execute.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/PayPalExecute.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_payment.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Payment.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_payment_request.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/PaymentRequest.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_personal_access_token.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/PersonalAccessToken.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_profile.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Profile.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_profile_referrals.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ProfileReferrals.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_region.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Region.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_rescue_devices.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/RescueDevices.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_ssh_key.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/SshKey.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_ssh_key_request.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/SshKeyRequest.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_stack_script.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/StackScript.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_support_ticket.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/SupportTicket.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_support_ticket_entity.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/SupportTicketEntity.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_support_ticket_reply.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/SupportTicketReply.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_support_ticket_request.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/SupportTicketRequest.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_tag.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Tag.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_transfer.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Transfer.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_user.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/User.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_user_defined_field.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/UserDefinedField.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/model_volume.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/Volume.md
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: [label, redirect_uri]
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: #/components/schemas/OAuthClient
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }, class ObjectSchema {
+        class Schema {
+            title: null
+            multipleOf: null
+            maximum: null
+            exclusiveMaximum: null
+            minimum: null
+            exclusiveMinimum: null
+            maxLength: null
+            minLength: null
+            pattern: null
+            maxItems: null
+            minItems: null
+            uniqueItems: null
+            maxProperties: null
+            minProperties: null
+            required: null
+            type: null
+            not: null
+            properties: {public=class BooleanSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: Whether to create a public or private client.
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                type: boolean
+                _default: null
+                _enum: null
+            }}
+            additionalProperties: null
+            description: null
+            format: null
+            $ref: null
+            nullable: null
+            readOnly: null
+            writeOnly: null
+            example: null
+            externalDocs: null
+            deprecated: null
+            discriminator: null
+            xml: null
+        }
+        type: object
+        defaultObject: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: [domain, remote_nameserver]
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class ObjectSchema {
+        class Schema {
+            title: null
+            multipleOf: null
+            maximum: null
+            exclusiveMaximum: null
+            minimum: null
+            exclusiveMinimum: null
+            maxLength: null
+            minLength: null
+            pattern: null
+            maxItems: null
+            minItems: null
+            uniqueItems: null
+            maxProperties: null
+            minProperties: null
+            required: null
+            type: null
+            not: null
+            properties: {domain=class StringSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: The domain to import.
+                    
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: example.com
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                type: string
+                _default: null
+                _enum: null
+            }, remote_nameserver=class StringSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: The remote nameserver that allows zone transfers (AXFR).
+                    
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: examplenameserver.com
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                type: string
+                _default: null
+                _enum: null
+            }}
+            additionalProperties: null
+            description: null
+            format: null
+            $ref: null
+            nullable: null
+            readOnly: null
+            writeOnly: null
+            example: null
+            externalDocs: null
+            deprecated: null
+            discriminator: null
+            xml: null
+        }
+        type: object
+        defaultObject: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: [type]
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: #/components/schemas/DomainRecord
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: [disk_id]
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: #/components/schemas/ImagePrivate
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }, class ObjectSchema {
+        class Schema {
+            title: null
+            multipleOf: null
+            maximum: null
+            exclusiveMaximum: null
+            minimum: null
+            exclusiveMinimum: null
+            maxLength: null
+            minLength: null
+            pattern: null
+            maxItems: null
+            minItems: null
+            uniqueItems: null
+            maxProperties: null
+            minProperties: null
+            required: null
+            type: null
+            not: null
+            properties: {disk_id=class IntegerSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: The ID of the Linode Disk that this Image will be created from.
+                    
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: 42
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                type: integer
+                format: int32
+                _default: null
+                _enum: null
+            }, label=class StringSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: A short title of this Image. Defaults to the label of the Disk it is being created from if not provided.
+                    
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                type: string
+                _default: null
+                _enum: null
+            }, description=class StringSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: A detailed description of this Image.
+                    
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                type: string
+                _default: null
+                _enum: null
+            }}
+            additionalProperties: null
+            description: null
+            format: null
+            $ref: null
+            nullable: null
+            readOnly: null
+            writeOnly: null
+            example: null
+            externalDocs: null
+            deprecated: null
+            discriminator: null
+            xml: null
+        }
+        type: object
+        defaultObject: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/LinodeType/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Linode/properties/label is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Linode/properties/tags is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Linode/properties/group is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/LinodeType/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/LinodeType/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/LinodeType/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Disk/properties/label is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Disk/properties/filesystem is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/LinodeType/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/image is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/root_pass is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/authorized_keys is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/authorized_users is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/stackscript_id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/DiskRequest/properties/stackscript_data is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: [images, label, script]
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: #/components/schemas/StackScript
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: [label]
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: #/components/schemas/ManagedCredential
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }, class ObjectSchema {
+        class Schema {
+            title: null
+            multipleOf: null
+            maximum: null
+            exclusiveMaximum: null
+            minimum: null
+            exclusiveMinimum: null
+            maxLength: null
+            minLength: null
+            pattern: null
+            maxItems: null
+            minItems: null
+            uniqueItems: null
+            maxProperties: null
+            minProperties: null
+            required: null
+            type: null
+            not: null
+            properties: {username=class StringSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: 5000
+                    minLength: 0
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: The username to use when accessing the Managed Service.
+                    
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: johndoe
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                type: string
+                _default: null
+                _enum: null
+            }, password=class StringSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: 5000
+                    minLength: 0
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: The password to use when accessing the Managed Service.
+                    
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: s3cur3P@ssw0rd
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                type: string
+                _default: null
+                _enum: null
+            }}
+            additionalProperties: null
+            description: null
+            format: null
+            $ref: null
+            nullable: null
+            readOnly: null
+            writeOnly: null
+            example: null
+            externalDocs: null
+            deprecated: null
+            discriminator: null
+            xml: null
+        }
+        type: object
+        defaultObject: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: [address, label, service_type, timeout]
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: #/components/schemas/ManagedService
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/NodeBalancer/properties/label is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/NodeBalancer/properties/client_conn_throttle is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: [address, label]
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: #/components/schemas/NodeBalancerNode
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Empty operationId found for path: get /nodebalancers/{nodeBalancerId}/stats. Renamed to auto-generated operationId: nodebalancersNodeBalancerIdStatsGet
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PersonalAccessToken/properties/label is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/page is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/pages is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/PaginationEnvelope/properties/results is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - The following schema has undefined (null) baseType. It could be due to form parameter defined in OpenAPI v2 spec with incorrect consumes. A correct 'consumes' for form parameters should be 'application/x-www-form-urlencoded' or 'multipart/form-data'
+[main] WARN  o.o.codegen.DefaultCodegen - schema: class ComposedSchema {
+    class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: null
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }
+    allOf: [class Schema {
+        title: null
+        multipleOf: null
+        maximum: null
+        exclusiveMaximum: null
+        minimum: null
+        exclusiveMinimum: null
+        maxLength: null
+        minLength: null
+        pattern: null
+        maxItems: null
+        minItems: null
+        uniqueItems: null
+        maxProperties: null
+        minProperties: null
+        required: null
+        type: null
+        not: null
+        properties: null
+        additionalProperties: null
+        description: null
+        format: null
+        $ref: #/components/schemas/Volume
+        nullable: null
+        readOnly: null
+        writeOnly: null
+        example: null
+        externalDocs: null
+        deprecated: null
+        discriminator: null
+        xml: null
+    }, class ObjectSchema {
+        class Schema {
+            title: null
+            multipleOf: null
+            maximum: null
+            exclusiveMaximum: null
+            minimum: null
+            exclusiveMinimum: null
+            maxLength: null
+            minLength: null
+            pattern: null
+            maxItems: null
+            minItems: null
+            uniqueItems: null
+            maxProperties: null
+            minProperties: null
+            required: null
+            type: null
+            not: null
+            properties: {region=class ComposedSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: null
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: true
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                allOf: [class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: null
+                    format: null
+                    $ref: #/components/schemas/Volume/properties/region
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }]
+                anyOf: null
+                oneOf: null
+            }, size=class ComposedSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: null
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: true
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                allOf: [class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: null
+                    format: null
+                    $ref: #/components/schemas/Volume/properties/size
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }]
+                anyOf: null
+                oneOf: null
+            }, linode_id=class ComposedSchema {
+                class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: null
+                    format: null
+                    $ref: null
+                    nullable: null
+                    readOnly: true
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }
+                allOf: [class Schema {
+                    title: null
+                    multipleOf: null
+                    maximum: null
+                    exclusiveMaximum: null
+                    minimum: null
+                    exclusiveMinimum: null
+                    maxLength: null
+                    minLength: null
+                    pattern: null
+                    maxItems: null
+                    minItems: null
+                    uniqueItems: null
+                    maxProperties: null
+                    minProperties: null
+                    required: null
+                    type: null
+                    not: null
+                    properties: null
+                    additionalProperties: null
+                    description: null
+                    format: null
+                    $ref: #/components/schemas/Volume/properties/linode_id
+                    nullable: null
+                    readOnly: null
+                    writeOnly: null
+                    example: null
+                    externalDocs: null
+                    deprecated: null
+                    discriminator: null
+                    xml: null
+                }]
+                anyOf: null
+                oneOf: null
+            }}
+            additionalProperties: null
+            description: null
+            format: null
+            $ref: null
+            nullable: null
+            readOnly: null
+            writeOnly: null
+            example: null
+            externalDocs: null
+            deprecated: null
+            discriminator: null
+            xml: null
+        }
+        type: object
+        defaultObject: null
+    }]
+    anyOf: null
+    oneOf: null
+}
+[main] WARN  o.o.codegen.DefaultCodegen - codegenModel is null. Default to UNKNOWN_BASE_TYPE
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Region/properties/id is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Volume/properties/label is not defined
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.DefaultCodegen - Unknown type found in the schema: object
+[main] WARN  o.o.codegen.utils.ModelUtils - #/components/schemas/Volume/properties/size is not defined
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_account.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/AccountApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_domains.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/DomainsApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_images.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ImagesApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_linode_instances.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeInstancesApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_linode_types.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LinodeTypesApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_longview.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/LongviewApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_managed.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ManagedApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_networking.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NetworkingApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_node_balancers.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/NodeBalancersApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_profile.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/ProfileApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_regions.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/RegionsApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_stack_scripts.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/StackScriptsApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_support.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/SupportApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_tags.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/TagsApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api_volumes.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/docs/VolumesApi.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/api/openapi.yaml
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/README.md
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/git_push.sh
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/.gitignore
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/configuration.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/client.go
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/response.go
+[main] INFO  o.o.codegen.DefaultGenerator - writing file /local/lsdk/.travis.yml
+[main] INFO  o.o.codegen.AbstractGenerator - writing file /local/lsdk/.openapi-generator/VERSION
