@@ -31,17 +31,23 @@ VolumesApiService Attach Volume
 Attaches a Volume on your Account to an existing Linode on your Account. In order for this request to complete successfully, your User must have &#x60;read_only&#x60; or &#x60;read_write&#x60; permission to the Volume and &#x60;read_write&#x60; permission to the Linode. Additionally, the Volume and Linode must be located in the same Region. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param volumeId ID of the Volume to attach.
- * @param body24 Volume to attach to a Linode.
+ * @param optional nil or *AttachVolumeOpts - Optional Parameters:
+ * @param "InlineObject9" (optional.Interface of InlineObject9) - 
 @return Volume
 */
-func (a *VolumesApiService) AttachVolume(ctx context.Context, volumeId int32, body24 Body24) (Volume, *http.Response, error) {
+
+type AttachVolumeOpts struct {
+	InlineObject9 optional.Interface
+}
+
+func (a *VolumesApiService) AttachVolume(ctx context.Context, volumeId int32, localVarOptionals *AttachVolumeOpts) (Volume, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue Volume
+		localVarReturnValue  Volume
 	)
 
 	// create path and map variables
@@ -70,7 +76,14 @@ func (a *VolumesApiService) AttachVolume(ctx context.Context, volumeId int32, bo
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body24
+	if localVarOptionals != nil && localVarOptionals.InlineObject9.IsSet() {
+		localVarOptionalInlineObject9, localVarOptionalInlineObject9ok := localVarOptionals.InlineObject9.Value().(InlineObject9)
+		if !localVarOptionalInlineObject9ok {
+			return localVarReturnValue, nil, reportError("inlineObject9 should be InlineObject9")
+		}
+		localVarPostBody = &localVarOptionalInlineObject9
+	}
+
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -87,38 +100,39 @@ func (a *VolumesApiService) AttachVolume(ctx context.Context, volumeId int32, bo
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v Volume
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -131,17 +145,23 @@ VolumesApiService Clone Volume
 Creates a Volume on your Account. In order for this request to complete successfully, your User must have the &#x60;add_volumes&#x60; grant. The new Volume will have the same size and data as the source Volume. Creating a new Volume will incur a charge on your Account. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param volumeId ID of the Volume to clone.
- * @param body25 The requested state your Volume will be cloned into.
+ * @param optional nil or *CloneVolumeOpts - Optional Parameters:
+ * @param "InlineObject10" (optional.Interface of InlineObject10) - 
 @return map[string]interface{}
 */
-func (a *VolumesApiService) CloneVolume(ctx context.Context, volumeId int32, body25 Body25) (map[string]interface{}, *http.Response, error) {
+
+type CloneVolumeOpts struct {
+	InlineObject10 optional.Interface
+}
+
+func (a *VolumesApiService) CloneVolume(ctx context.Context, volumeId int32, localVarOptionals *CloneVolumeOpts) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue  map[string]interface{}
 	)
 
 	// create path and map variables
@@ -170,7 +190,14 @@ func (a *VolumesApiService) CloneVolume(ctx context.Context, volumeId int32, bod
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body25
+	if localVarOptionals != nil && localVarOptionals.InlineObject10.IsSet() {
+		localVarOptionalInlineObject10, localVarOptionalInlineObject10ok := localVarOptionals.InlineObject10.Value().(InlineObject10)
+		if !localVarOptionalInlineObject10ok {
+			return localVarReturnValue, nil, reportError("inlineObject10 should be InlineObject10")
+		}
+		localVarPostBody = &localVarOptionalInlineObject10
+	}
+
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -187,38 +214,39 @@ func (a *VolumesApiService) CloneVolume(ctx context.Context, volumeId int32, bod
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -230,17 +258,23 @@ func (a *VolumesApiService) CloneVolume(ctx context.Context, volumeId int32, bod
 VolumesApiService Create Volume
 Creates a Volume on your Account. In order for this to complete successfully, your User must have the &#x60;add_volumes&#x60; grant. Creating a new Volume will start accruing additional charges on your account. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param body23 The requested initial state of a new Volume.
+ * @param optional nil or *CreateVolumeOpts - Optional Parameters:
+ * @param "InlineObject8" (optional.Interface of InlineObject8) - 
 @return Volume
 */
-func (a *VolumesApiService) CreateVolume(ctx context.Context, body23 Body23) (Volume, *http.Response, error) {
+
+type CreateVolumeOpts struct {
+	InlineObject8 optional.Interface
+}
+
+func (a *VolumesApiService) CreateVolume(ctx context.Context, localVarOptionals *CreateVolumeOpts) (Volume, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue Volume
+		localVarReturnValue  Volume
 	)
 
 	// create path and map variables
@@ -268,7 +302,14 @@ func (a *VolumesApiService) CreateVolume(ctx context.Context, body23 Body23) (Vo
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body23
+	if localVarOptionals != nil && localVarOptionals.InlineObject8.IsSet() {
+		localVarOptionalInlineObject8, localVarOptionalInlineObject8ok := localVarOptionals.InlineObject8.Value().(InlineObject8)
+		if !localVarOptionalInlineObject8ok {
+			return localVarReturnValue, nil, reportError("inlineObject8 should be InlineObject8")
+		}
+		localVarPostBody = &localVarOptionalInlineObject8
+	}
+
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -285,38 +326,39 @@ func (a *VolumesApiService) CreateVolume(ctx context.Context, body23 Body23) (Vo
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v Volume
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -333,12 +375,12 @@ Deletes a Volume you have permission to &#x60;read_write&#x60;.  **Deleting a Vo
 */
 func (a *VolumesApiService) DeleteVolume(ctx context.Context, volumeId int32) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarHttpMethod   = strings.ToUpper("Delete")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue  map[string]interface{}
 	)
 
 	// create path and map variables
@@ -382,38 +424,39 @@ func (a *VolumesApiService) DeleteVolume(ctx context.Context, volumeId int32) (m
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -430,12 +473,12 @@ Detaches a Volume on your Account from a Linode on your Account. In order for th
 */
 func (a *VolumesApiService) DetachVolume(ctx context.Context, volumeId int32) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue  map[string]interface{}
 	)
 
 	// create path and map variables
@@ -479,38 +522,39 @@ func (a *VolumesApiService) DetachVolume(ctx context.Context, volumeId int32) (m
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -530,18 +574,18 @@ Get information about a single Volume.
 */
 
 type GetVolumeOpts struct {
-    Page optional.Int32
-    PageSize optional.Int32
+	Page optional.Int32
+	PageSize optional.Int32
 }
 
 func (a *VolumesApiService) GetVolume(ctx context.Context, volumeId int32, localVarOptionals *GetVolumeOpts) (Volume, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue Volume
+		localVarReturnValue  Volume
 	)
 
 	// create path and map variables
@@ -591,38 +635,39 @@ func (a *VolumesApiService) GetVolume(ctx context.Context, volumeId int32, local
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v Volume
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -641,18 +686,18 @@ Returns a paginated list of Volumes you have permission to view.
 */
 
 type GetVolumesOpts struct {
-    Page optional.Int32
-    PageSize optional.Int32
+	Page optional.Int32
+	PageSize optional.Int32
 }
 
 func (a *VolumesApiService) GetVolumes(ctx context.Context, localVarOptionals *GetVolumesOpts) (InlineResponse20016, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue InlineResponse20016
+		localVarReturnValue  InlineResponse20016
 	)
 
 	// create path and map variables
@@ -701,38 +746,39 @@ func (a *VolumesApiService) GetVolumes(ctx context.Context, localVarOptionals *G
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v InlineResponse20016
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -745,17 +791,23 @@ VolumesApiService Resize Volume
 Resize an existing Volume on your Account. In order for this request to complete successfully, your User must have the &#x60;read_write&#x60; permissions to the Volume. * Volumes can only be resized up. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param volumeId ID of the Volume to resize.
- * @param body26 The requested size to increase your Volume to.
+ * @param optional nil or *ResizeVolumeOpts - Optional Parameters:
+ * @param "InlineObject11" (optional.Interface of InlineObject11) - 
 @return map[string]interface{}
 */
-func (a *VolumesApiService) ResizeVolume(ctx context.Context, volumeId int32, body26 Body26) (map[string]interface{}, *http.Response, error) {
+
+type ResizeVolumeOpts struct {
+	InlineObject11 optional.Interface
+}
+
+func (a *VolumesApiService) ResizeVolume(ctx context.Context, volumeId int32, localVarOptionals *ResizeVolumeOpts) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue  map[string]interface{}
 	)
 
 	// create path and map variables
@@ -784,7 +836,14 @@ func (a *VolumesApiService) ResizeVolume(ctx context.Context, volumeId int32, bo
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body26
+	if localVarOptionals != nil && localVarOptionals.InlineObject11.IsSet() {
+		localVarOptionalInlineObject11, localVarOptionalInlineObject11ok := localVarOptionals.InlineObject11.Value().(InlineObject11)
+		if !localVarOptionalInlineObject11ok {
+			return localVarReturnValue, nil, reportError("inlineObject11 should be InlineObject11")
+		}
+		localVarPostBody = &localVarOptionalInlineObject11
+	}
+
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -801,38 +860,39 @@ func (a *VolumesApiService) ResizeVolume(ctx context.Context, volumeId int32, bo
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -850,12 +910,12 @@ Updates a Volume that you have permission to &#x60;read_write&#x60;.
 */
 func (a *VolumesApiService) UpdateVolume(ctx context.Context, volumeId int32, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (Volume, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
+		localVarHttpMethod   = strings.ToUpper("Put")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue Volume
+		localVarReturnValue  Volume
 	)
 
 	// create path and map variables
@@ -901,38 +961,39 @@ func (a *VolumesApiService) UpdateVolume(ctx context.Context, volumeId int32, uN
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v Volume
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

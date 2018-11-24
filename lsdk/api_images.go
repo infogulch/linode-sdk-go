@@ -36,17 +36,17 @@ Creates a private gold-master Image from a Linode Disk. There is no additional c
 */
 
 type CreateImageOpts struct {
-    UNKNOWNBASETYPE optional.Interface
+	UNKNOWNBASETYPE optional.Interface
 }
 
 func (a *ImagesApiService) CreateImage(ctx context.Context, localVarOptionals *CreateImageOpts) (ImagePrivate, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue ImagePrivate
+		localVarReturnValue  ImagePrivate
 	)
 
 	// create path and map variables
@@ -98,38 +98,39 @@ func (a *ImagesApiService) CreateImage(ctx context.Context, localVarOptionals *C
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ImagePrivate
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -146,12 +147,12 @@ Deletes a private Image you have permission to &#x60;read_write&#x60;.   **Delet
 */
 func (a *ImagesApiService) DeleteImage(ctx context.Context, imageId string) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarHttpMethod   = strings.ToUpper("Delete")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue  map[string]interface{}
 	)
 
 	// create path and map variables
@@ -195,38 +196,39 @@ func (a *ImagesApiService) DeleteImage(ctx context.Context, imageId string) (map
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -243,12 +245,12 @@ Get information about a single Image.
 */
 func (a *ImagesApiService) GetImage(ctx context.Context, imageId string) (ImagePrivate, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue ImagePrivate
+		localVarReturnValue  ImagePrivate
 	)
 
 	// create path and map variables
@@ -292,38 +294,39 @@ func (a *ImagesApiService) GetImage(ctx context.Context, imageId string) (ImageP
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ImagePrivate
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -342,18 +345,18 @@ Returns a paginated list of Images.  * Calling this endpoint without authenticat
 */
 
 type GetImagesOpts struct {
-    Page optional.Int32
-    PageSize optional.Int32
+	Page optional.Int32
+	PageSize optional.Int32
 }
 
 func (a *ImagesApiService) GetImages(ctx context.Context, localVarOptionals *GetImagesOpts) (InlineResponse20010, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue InlineResponse20010
+		localVarReturnValue  InlineResponse20010
 	)
 
 	// create path and map variables
@@ -402,38 +405,39 @@ func (a *ImagesApiService) GetImages(ctx context.Context, localVarOptionals *Get
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v InlineResponse20010
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -451,12 +455,12 @@ Updates a private Image that you have permission to &#x60;read_write&#x60;.
 */
 func (a *ImagesApiService) UpdateImage(ctx context.Context, imageId string, imagePrivate ImagePrivate) (ImagePrivate, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
+		localVarHttpMethod   = strings.ToUpper("Put")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue ImagePrivate
+		localVarReturnValue  ImagePrivate
 	)
 
 	// create path and map variables
@@ -502,38 +506,39 @@ func (a *ImagesApiService) UpdateImage(ctx context.Context, imageId string, imag
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v ImagePrivate
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

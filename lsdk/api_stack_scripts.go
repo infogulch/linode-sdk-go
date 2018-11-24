@@ -35,12 +35,12 @@ Creates a StackScript in your Account.
 */
 func (a *StackScriptsApiService) AddStackScript(ctx context.Context, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (StackScript, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue StackScript
+		localVarReturnValue  StackScript
 	)
 
 	// create path and map variables
@@ -85,38 +85,39 @@ func (a *StackScriptsApiService) AddStackScript(ctx context.Context, uNKNOWNBASE
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v StackScript
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -133,12 +134,12 @@ Deletes a private StackScript you have permission to &#x60;read_write&#x60;. You
 */
 func (a *StackScriptsApiService) DeleteStackScript(ctx context.Context, stackscriptId string) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Delete")
+		localVarHttpMethod   = strings.ToUpper("Delete")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue  map[string]interface{}
 	)
 
 	// create path and map variables
@@ -182,38 +183,39 @@ func (a *StackScriptsApiService) DeleteStackScript(ctx context.Context, stackscr
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -230,12 +232,12 @@ Returns all of the information about a specified StackScript, including the cont
 */
 func (a *StackScriptsApiService) GetStackScript(ctx context.Context, stackscriptId string) (StackScript, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue StackScript
+		localVarReturnValue  StackScript
 	)
 
 	// create path and map variables
@@ -279,38 +281,39 @@ func (a *StackScriptsApiService) GetStackScript(ctx context.Context, stackscript
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v StackScript
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -329,18 +332,18 @@ If the request is not authenticated, only public StackScripts are returned.  For
 */
 
 type GetStackScriptsOpts struct {
-    Page optional.Int32
-    PageSize optional.Int32
+	Page optional.Int32
+	PageSize optional.Int32
 }
 
 func (a *StackScriptsApiService) GetStackScripts(ctx context.Context, localVarOptionals *GetStackScriptsOpts) (InlineResponse20017, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue InlineResponse20017
+		localVarReturnValue  InlineResponse20017
 	)
 
 	// create path and map variables
@@ -389,38 +392,39 @@ func (a *StackScriptsApiService) GetStackScripts(ctx context.Context, localVarOp
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v InlineResponse20017
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -439,17 +443,17 @@ Updates a StackScript.  **Once a StackScript is made public, it cannot be made p
 */
 
 type UpdateStackScriptOpts struct {
-    StackScript optional.Interface
+	StackScript optional.Interface
 }
 
 func (a *StackScriptsApiService) UpdateStackScript(ctx context.Context, stackscriptId string, localVarOptionals *UpdateStackScriptOpts) (StackScript, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
+		localVarHttpMethod   = strings.ToUpper("Put")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue StackScript
+		localVarReturnValue  StackScript
 	)
 
 	// create path and map variables
@@ -502,38 +506,39 @@ func (a *StackScriptsApiService) UpdateStackScript(ctx context.Context, stackscr
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v StackScript
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

@@ -30,17 +30,17 @@ type NetworkingApiService service
 NetworkingApiService Allocate IP Address
 Allocates a new IPv4 Address on your Account. The Linode must be configured to support additional addresses - please [open a support ticket](/#operation/createTicket) requesting additional addresses before attempting allocation. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param body14 Information about the address you are creating.
+ * @param uNKNOWNBASETYPE Information about the address you are creating.
 @return IpAddress
 */
-func (a *NetworkingApiService) AllocateIP(ctx context.Context, body14 Body14) (IpAddress, *http.Response, error) {
+func (a *NetworkingApiService) AllocateIP(ctx context.Context, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (IpAddress, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue IpAddress
+		localVarReturnValue  IpAddress
 	)
 
 	// create path and map variables
@@ -68,7 +68,7 @@ func (a *NetworkingApiService) AllocateIP(ctx context.Context, body14 Body14) (I
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body14
+	localVarPostBody = &uNKNOWNBASETYPE
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -85,38 +85,39 @@ func (a *NetworkingApiService) AllocateIP(ctx context.Context, body14 Body14) (I
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v IpAddress
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -128,17 +129,17 @@ func (a *NetworkingApiService) AllocateIP(ctx context.Context, body14 Body14) (I
 NetworkingApiService Assign IPs to Linodes
 Assign multiple IPs to multiple Linodes in one Region. This allows swapping, shuffling, or otherwise reorganizing IPv4 Addresses to your Linodes.  When the assignment is finished, all Linodes must end up with at least one public IPv4 and no more than one private IPv4. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param body15 Information about what IPv4 address to assign, and to which Linode. 
+ * @param uNKNOWNBASETYPE Information about what IPv4 address to assign, and to which Linode. 
 @return map[string]interface{}
 */
-func (a *NetworkingApiService) AssignIPs(ctx context.Context, body15 Body15) (map[string]interface{}, *http.Response, error) {
+func (a *NetworkingApiService) AssignIPs(ctx context.Context, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue  map[string]interface{}
 	)
 
 	// create path and map variables
@@ -166,7 +167,7 @@ func (a *NetworkingApiService) AssignIPs(ctx context.Context, body15 Body15) (ma
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body15
+	localVarPostBody = &uNKNOWNBASETYPE
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -183,38 +184,39 @@ func (a *NetworkingApiService) AssignIPs(ctx context.Context, body15 Body15) (ma
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -231,12 +233,12 @@ Returns information about a single IP Address on your Account.
 */
 func (a *NetworkingApiService) GetIP(ctx context.Context, address string) (IpAddress, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue IpAddress
+		localVarReturnValue  IpAddress
 	)
 
 	// create path and map variables
@@ -280,38 +282,39 @@ func (a *NetworkingApiService) GetIP(ctx context.Context, address string) (IpAdd
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v IpAddress
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -327,12 +330,12 @@ Returns a paginated list of IP Addresses on your Account, excluding private addr
 */
 func (a *NetworkingApiService) GetIPs(ctx context.Context) (InlineResponse20026, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue InlineResponse20026
+		localVarReturnValue  InlineResponse20026
 	)
 
 	// create path and map variables
@@ -375,38 +378,39 @@ func (a *NetworkingApiService) GetIPs(ctx context.Context) (InlineResponse20026,
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v InlineResponse20026
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -425,18 +429,18 @@ Displays the IPv6 pools on your Account.
 */
 
 type GetIPv6PoolsOpts struct {
-    Page optional.Int32
-    PageSize optional.Int32
+	Page optional.Int32
+	PageSize optional.Int32
 }
 
 func (a *NetworkingApiService) GetIPv6Pools(ctx context.Context, localVarOptionals *GetIPv6PoolsOpts) (InlineResponse20027, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue InlineResponse20027
+		localVarReturnValue  InlineResponse20027
 	)
 
 	// create path and map variables
@@ -485,38 +489,39 @@ func (a *NetworkingApiService) GetIPv6Pools(ctx context.Context, localVarOptiona
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v InlineResponse20027
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -535,18 +540,18 @@ Displays the IPv6 ranges on your Account.
 */
 
 type GetIPv6RangesOpts struct {
-    Page optional.Int32
-    PageSize optional.Int32
+	Page optional.Int32
+	PageSize optional.Int32
 }
 
 func (a *NetworkingApiService) GetIPv6Ranges(ctx context.Context, localVarOptionals *GetIPv6RangesOpts) (InlineResponse20028, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Get")
+		localVarHttpMethod   = strings.ToUpper("Get")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue InlineResponse20028
+		localVarReturnValue  InlineResponse20028
 	)
 
 	// create path and map variables
@@ -595,38 +600,39 @@ func (a *NetworkingApiService) GetIPv6Ranges(ctx context.Context, localVarOption
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v InlineResponse20028
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -638,17 +644,17 @@ func (a *NetworkingApiService) GetIPv6Ranges(ctx context.Context, localVarOption
 NetworkingApiService Configure IP Sharing
 Configure shared IPs.  A shared IP may be brought up on a Linode other than the one it lists in its response.  This can be used to allow one Linode to begin serving requests should another become unresponsive. 
  * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param body16 Information about what IPs to share with which Linode.
+ * @param uNKNOWNBASETYPE Information about what IPs to share with which Linode.
 @return map[string]interface{}
 */
-func (a *NetworkingApiService) ShareIPs(ctx context.Context, body16 Body16) (map[string]interface{}, *http.Response, error) {
+func (a *NetworkingApiService) ShareIPs(ctx context.Context, uNKNOWNBASETYPE UNKNOWN_BASE_TYPE) (map[string]interface{}, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Post")
+		localVarHttpMethod   = strings.ToUpper("Post")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue map[string]interface{}
+		localVarReturnValue  map[string]interface{}
 	)
 
 	// create path and map variables
@@ -676,7 +682,7 @@ func (a *NetworkingApiService) ShareIPs(ctx context.Context, body16 Body16) (map
 		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
 	}
 	// body params
-	localVarPostBody = &body16
+	localVarPostBody = &uNKNOWNBASETYPE
 	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -693,38 +699,39 @@ func (a *NetworkingApiService) ShareIPs(ctx context.Context, body16 Body16) (map
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v map[string]interface{}
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}
@@ -742,12 +749,12 @@ Sets RDNS on an IP Address. Forward DNS must already be set up for reverse DNS t
 */
 func (a *NetworkingApiService) UpdateIP(ctx context.Context, address string, ipAddress IpAddress) (IpAddress, *http.Response, error) {
 	var (
-		localVarHttpMethod = strings.ToUpper("Put")
+		localVarHttpMethod   = strings.ToUpper("Put")
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue IpAddress
+		localVarReturnValue  IpAddress
 	)
 
 	// create path and map variables
@@ -793,38 +800,39 @@ func (a *NetworkingApiService) UpdateIP(ctx context.Context, address string, ipA
 		return localVarReturnValue, localVarHttpResponse, err
 	}
 
-	if localVarHttpResponse.StatusCode < 300 {
-		// If we succeed, return the data, otherwise pass on to decode error.
-		err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-		if err == nil {
-			return localVarReturnValue, localVarHttpResponse, err
-		}
-	}
-
 	if localVarHttpResponse.StatusCode >= 300 {
 		newErr := GenericOpenAPIError{
-			body: localVarBody,
+			body:  localVarBody,
 			error: localVarHttpResponse.Status,
 		}
 		if localVarHttpResponse.StatusCode == 200 {
 			var v IpAddress
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
 		}
 		if localVarHttpResponse.StatusCode == 0 {
 			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"));
-				if err != nil {
-					newErr.error = err.Error()
-					return localVarReturnValue, localVarHttpResponse, newErr
-				}
-				newErr.model = v
+			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
 				return localVarReturnValue, localVarHttpResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHttpResponse, newErr
+		}
+		return localVarReturnValue, localVarHttpResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
 		}
 		return localVarReturnValue, localVarHttpResponse, newErr
 	}

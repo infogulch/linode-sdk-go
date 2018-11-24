@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AddLinodeIP**
-> IpAddress AddLinodeIP(ctx, linodeId, body8)
+> IpAddress AddLinodeIP(ctx, linodeId, uNKNOWNBASETYPE)
 Allocate IPv4 Address
 
 Allocates a public or private IPv4 address to a Linode. Public IP Addresses, after the one included with each Linode, incur an additional monthly charge. If you need an additional public IP Address you must request one - please [open a support ticket](/#operation/createTicket). You may not add more than one private IPv4 address to a single Linode. 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **linodeId** | **int32**| ID of the Linode to look up. | 
-  **body8** | [**Body8**](Body8.md)| Information about the address you are creating. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Information about the address you are creating. | 
 
 ### Return type
 
@@ -155,7 +155,7 @@ Optional parameters are passed through a pointer to a BootLinodeInstanceOpts str
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body4** | [**optional.Interface of Body4**](Body4.md)| Optional configuration to boot into (see above). | 
+ **inlineObject3** | [**optional.Interface of InlineObject3**](InlineObject3.md)|  | 
 
 ### Return type
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CloneLinodeInstance**
-> map[string]interface{} CloneLinodeInstance(ctx, linodeId, body5)
+> map[string]interface{} CloneLinodeInstance(ctx, linodeId, optional)
 Clone Linode
 
 You can clone your Linode's existing Disks or Configuration profiles to another Linode on your Account. In order for this request to complete successfully, your User must have the `add_linodes` grant. Cloning to a new Linode will incur a charge on your Account. If cloning to an existing Linode, any actions currently running or queued must be completed first before you can clone to it. 
@@ -212,7 +212,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **linodeId** | **int32**| ID of the Linode to clone. | 
-  **body5** | [**Body5**](Body5.md)| The requested state your Linode will be cloned into. | 
+ **optional** | ***CloneLinodeInstanceOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a CloneLinodeInstanceOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inlineObject4** | [**optional.Interface of InlineObject4**](InlineObject4.md)|  | 
 
 ### Return type
 
@@ -230,7 +238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateLinodeInstance**
-> Linode CreateLinodeInstance(ctx, body1)
+> Linode CreateLinodeInstance(ctx, optional)
 Create Linode
 
 Creates a Linode Instance on your Account. In order for this request to complete successfully, your User must have the `add_linodes` grant. Creating a new Linode will incur a charge on your Account.  Linodes can be created using one of the available Types. See [GET /linode/types](/#operation/getLinodeTypes) to get more information about each Type's specs and cost.  Linodes can be created in any one of our available [Regions](/#operation/getRegions) for a list of available Regions you can deploy your Linode in.  Linodes can be created in a number of ways:  * Using a Linode Linux Distribution image or an Image you created based on another Linode.   * The Linode will be `running` after it completes `provisioning`.   * A default config with two Disks, one being a 512 swap disk, is created.     * `swap_size` can be used to customize the swap disk size.   * Requires a `root_pass` be supplied to use for the root User's Account.   * It is recommended to supply SSH keys for the root User using the `authorized_keys` field.   * You may also supply a list of usernames via the `authorized_users` field.     * These users must have an SSH Key associated with your Profile first. See [/profile/sshkeys](/#operation/addSSHKey) for more information.  * Using a StackScript.   * See [/linode/stackscripts](/#operation/getStackScripts) for     a list of available StackScripts.   * The Linode will be `running` after it completes `provisioning`.   * Requires a compatible Image to be supplied.     * See [/linode/stackscript/{stackscriptId}](/#operation/getStackScript) for compatible Images.   * Requires a `root_pass` be supplied to use for the root User's Account.   * It is recommended to supply SSH keys for the root User using the `authorized_keys` field.   * You may also supply a list of usernames via the `authorized_users` field.     * These users must have an SSH Key associated with your Profile first. See [/profile/sshkeys](/#operation/addSSHKey) for more information.  * Using one of your other Linode's backups.   * You must create a Linode large enough to accommodate the Backup's size.   * The Disks and Config will match that of the Linode that was backed up.   * The `root_pass` will match that of the Linode that was backed up.  * Create an empty Linode.   * The Linode will remain `offline` and must be manually started.     * See [POST /linode/instances/{linodeId}/boot](/#operation/bootLinodeInstance).   * Disks and Configs must be created manually.   * This is only recommended for advanced use cases.   **Important**: You must be an unrestricted User in order to add or modify tags on Linodes. 
@@ -240,7 +248,14 @@ Creates a Linode Instance on your Account. In order for this request to complete
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body1** | [**Body1**](Body1.md)| The requested initial state of a new Linode. | 
+ **optional** | ***CreateLinodeInstanceOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a CreateLinodeInstanceOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject** | [**optional.Interface of InlineObject**](InlineObject.md)|  | 
 
 ### Return type
 
@@ -258,7 +273,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateSnapshot**
-> Backup CreateSnapshot(ctx, linodeId, body2)
+> Backup CreateSnapshot(ctx, linodeId, optional)
 Create Snapshot
 
 Creates a snapshot Backup of a Linode. ** If you already have a snapshot of this Linode, this is a destructive action. The previous snapshot will be deleted.** 
@@ -269,7 +284,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **linodeId** | **int32**| The ID of the Linode the backups belong to. | 
-  **body2** | [**Body2**](Body2.md)| The label for the new snapshot. | 
+ **optional** | ***CreateSnapshotOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a CreateSnapshotOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inlineObject1** | [**optional.Interface of InlineObject1**](InlineObject1.md)|  | 
 
 ### Return type
 
@@ -948,7 +971,7 @@ Optional parameters are passed through a pointer to a RebootLinodeInstanceOpts s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body10** | [**optional.Interface of Body10**](Body10.md)| Optional reboot parameters. | 
+ **uNKNOWNBASETYPE** | [**optional.Interface of UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Optional reboot parameters. | 
 
 ### Return type
 
@@ -966,7 +989,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RebuildLinodeInstance**
-> Linode RebuildLinodeInstance(ctx, linodeId, body11)
+> Linode RebuildLinodeInstance(ctx, linodeId, uNKNOWNBASETYPE)
 Rebuild Linode
 
 Rebuilds a Linode you have the `read_write` permission to modify. A rebuild will first shut down the Linode, delete all disks and configs on the Linode, and then deploy a new `image` to the Linode with the given attributes. Additionally:    * Requires an `image` be supplied.   * Requires a `root_pass` be supplied to use for the root User's Account.   * It is recommended to supply SSH keys for the root User using the     `authorized_keys` field. 
@@ -977,7 +1000,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **linodeId** | **int32**| ID of the Linode to rebuild. | 
-  **body11** | [**Body11**](Body11.md)| The requested state your Linode will be rebuilt into. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The requested state your Linode will be rebuilt into. | 
 
 ### Return type
 
@@ -1043,7 +1066,7 @@ Optional parameters are passed through a pointer to a RescueLinodeInstanceOpts s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **body12** | [**optional.Interface of Body12**](Body12.md)| Optional object of devices to be mounted. | 
+ **inlineObject5** | [**optional.Interface of InlineObject5**](InlineObject5.md)|  | 
 
 ### Return type
 
@@ -1061,7 +1084,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ResetDiskPassword**
-> map[string]interface{} ResetDiskPassword(ctx, linodeId, diskId, body6)
+> map[string]interface{} ResetDiskPassword(ctx, linodeId, diskId, uNKNOWNBASETYPE)
 Reset Disk Root Password
 
 Resets the password of a Disk you have permission to `read_write`. 
@@ -1073,7 +1096,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **linodeId** | **int32**| ID of the Linode to look up. | 
   **diskId** | **int32**| ID of the Disk to look up. | 
-  **body6** | [**Body6**](Body6.md)| The new password. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new password. | 
 
 ### Return type
 
@@ -1091,7 +1114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ResizeDisk**
-> map[string]interface{} ResizeDisk(ctx, linodeId, diskId, body7)
+> map[string]interface{} ResizeDisk(ctx, linodeId, diskId, uNKNOWNBASETYPE)
 Resize Disk
 
 Resizes a Disk you have permission to `read_write`. The Linode this Disk is attached to must be shut down for resizing to take effect. If you are resizing the Disk to a smaller size, it cannot be made smaller than what is required by the total size of the files current on the Disk. The Disk must not be in use. If the Disk is in use, the request will succeed but the resize will ultimately fail. 
@@ -1103,7 +1126,7 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **linodeId** | **int32**| ID of the Linode to look up. | 
   **diskId** | **int32**| ID of the Disk to look up. | 
-  **body7** | [**Body7**](Body7.md)| The new size of the Disk. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The new size of the Disk. | 
 
 ### Return type
 
@@ -1121,7 +1144,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ResizeLinodeInstance**
-> map[string]interface{} ResizeLinodeInstance(ctx, linodeId, body13)
+> map[string]interface{} ResizeLinodeInstance(ctx, linodeId, optional)
 Resize Linode
 
 Resizes a Linode you have the `read_write` permission to a different Type. If any actions are currently running or queued, those actions must be completed first before you can initiate a resize. Additionally, the following criteria must be met in order to resize a Linode:    * Any pending free upgrades to the Linode's current Type must be performed   before a resize can occur.   * The Linode must not have a pending migration.   * Your Account cannot have an outstanding balance.   * The Linode must not have more disk allocation than the new Type allows.     * In that situation, you must first delete or resize the disk to be smaller. 
@@ -1132,7 +1155,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **linodeId** | **int32**| ID of the Linode to resize. | 
-  **body13** | [**Body13**](Body13.md)| The Type your current Linode will resize to. | 
+ **optional** | ***ResizeLinodeInstanceOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ResizeLinodeInstanceOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inlineObject6** | [**optional.Interface of InlineObject6**](InlineObject6.md)|  | 
 
 ### Return type
 
@@ -1150,7 +1181,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **RestoreBackup**
-> map[string]interface{} RestoreBackup(ctx, linodeId, backupId, body3)
+> map[string]interface{} RestoreBackup(ctx, linodeId, backupId, optional)
 Restore Backup
 
 Restores a Linode's Backup to the specified Linode. 
@@ -1162,7 +1193,16 @@ Name | Type | Description  | Notes
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **linodeId** | **int32**| The ID of the Linode that the Backup belongs to. | 
   **backupId** | **int32**| The ID of the Backup to restore. | 
-  **body3** | [**Body3**](Body3.md)| Parameters to provide when restoring the Backup. | 
+ **optional** | ***RestoreBackupOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a RestoreBackupOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **inlineObject2** | [**optional.Interface of InlineObject2**](InlineObject2.md)|  | 
 
 ### Return type
 
@@ -1289,7 +1329,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **body9** | [**optional.Interface of Body9**](Body9.md)| The information to update for the IP address. | 
+ **uNKNOWNBASETYPE** | [**optional.Interface of UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The information to update for the IP address. | 
 
 ### Return type
 

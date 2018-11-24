@@ -28,7 +28,7 @@ Optional parameters are passed through a pointer to a CreateTagOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body22** | [**optional.Interface of Body22**](Body22.md)| The tag to create, and optionally the objects to tag.  | 
+ **inlineObject7** | [**optional.Interface of InlineObject7**](InlineObject7.md)|  | 
 
 ### Return type
 

@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 
 # **AllocateIP**
-> IpAddress AllocateIP(ctx, body14)
+> IpAddress AllocateIP(ctx, uNKNOWNBASETYPE)
 Allocate IP Address
 
 Allocates a new IPv4 Address on your Account. The Linode must be configured to support additional addresses - please [open a support ticket](/#operation/createTicket) requesting additional addresses before attempting allocation. 
@@ -25,7 +25,7 @@ Allocates a new IPv4 Address on your Account. The Linode must be configured to s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body14** | [**Body14**](Body14.md)| Information about the address you are creating. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Information about the address you are creating. | 
 
 ### Return type
 
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **AssignIPs**
-> map[string]interface{} AssignIPs(ctx, body15)
+> map[string]interface{} AssignIPs(ctx, uNKNOWNBASETYPE)
 Assign IPs to Linodes
 
 Assign multiple IPs to multiple Linodes in one Region. This allows swapping, shuffling, or otherwise reorganizing IPv4 Addresses to your Linodes.  When the assignment is finished, all Linodes must end up with at least one public IPv4 and no more than one private IPv4. 
@@ -53,7 +53,7 @@ Assign multiple IPs to multiple Linodes in one Region. This allows swapping, shu
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body15** | [**Body15**](Body15.md)| Information about what IPv4 address to assign, and to which Linode.  | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Information about what IPv4 address to assign, and to which Linode.  | 
 
 ### Return type
 
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ShareIPs**
-> map[string]interface{} ShareIPs(ctx, body16)
+> map[string]interface{} ShareIPs(ctx, uNKNOWNBASETYPE)
 Configure IP Sharing
 
 Configure shared IPs.  A shared IP may be brought up on a Linode other than the one it lists in its response.  This can be used to allow one Linode to begin serving requests should another become unresponsive. 
@@ -205,7 +205,7 @@ Configure shared IPs.  A shared IP may be brought up on a Linode other than the 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body16** | [**Body16**](Body16.md)| Information about what IPs to share with which Linode. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Information about what IPs to share with which Linode. | 
 
 ### Return type
 

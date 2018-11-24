@@ -177,7 +177,7 @@ Optional parameters are passed through a pointer to a CreateUserOpts struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**optional.Interface of Body**](Body.md)| Information about the User to create. | 
+ **uNKNOWNBASETYPE** | [**optional.Interface of UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Information about the User to create. | 
 
 ### Return type
 

@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **CreateNodeBalancer**
-> NodeBalancer CreateNodeBalancer(ctx, body17)
+> NodeBalancer CreateNodeBalancer(ctx, uNKNOWNBASETYPE)
 Create NodeBalancer
 
 Creates a NodeBalancer in the requested Region. This NodeBalancer will not start serving requests until it is configured. 
@@ -33,7 +33,7 @@ Creates a NodeBalancer in the requested Region. This NodeBalancer will not start
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body17** | [**Body17**](Body17.md)| Information about the NodeBalancer to create. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Information about the NodeBalancer to create. | 
 
 ### Return type
 

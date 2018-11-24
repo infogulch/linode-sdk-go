@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateTicketReply**
-> SupportTicketReply CreateTicketReply(ctx, ticketId, body21)
+> SupportTicketReply CreateTicketReply(ctx, ticketId, uNKNOWNBASETYPE)
 Create Reply
 
 Adds a reply to an existing Support Ticket. 
@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **ticketId** | **int32**| The ID of the Support Ticket. | 
-  **body21** | [**Body21**](Body21.md)| Add a reply. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Add a reply. | 
 
 ### Return type
 

@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **AttachVolume**
-> Volume AttachVolume(ctx, volumeId, body24)
+> Volume AttachVolume(ctx, volumeId, optional)
 Attach Volume
 
 Attaches a Volume on your Account to an existing Linode on your Account. In order for this request to complete successfully, your User must have `read_only` or `read_write` permission to the Volume and `read_write` permission to the Linode. Additionally, the Volume and Linode must be located in the same Region. 
@@ -27,7 +27,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **volumeId** | **int32**| ID of the Volume to attach. | 
-  **body24** | [**Body24**](Body24.md)| Volume to attach to a Linode. | 
+ **optional** | ***AttachVolumeOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a AttachVolumeOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inlineObject9** | [**optional.Interface of InlineObject9**](InlineObject9.md)|  | 
 
 ### Return type
 
@@ -45,7 +53,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CloneVolume**
-> map[string]interface{} CloneVolume(ctx, volumeId, body25)
+> map[string]interface{} CloneVolume(ctx, volumeId, optional)
 Clone Volume
 
 Creates a Volume on your Account. In order for this request to complete successfully, your User must have the `add_volumes` grant. The new Volume will have the same size and data as the source Volume. Creating a new Volume will incur a charge on your Account. 
@@ -56,7 +64,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **volumeId** | **int32**| ID of the Volume to clone. | 
-  **body25** | [**Body25**](Body25.md)| The requested state your Volume will be cloned into. | 
+ **optional** | ***CloneVolumeOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a CloneVolumeOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inlineObject10** | [**optional.Interface of InlineObject10**](InlineObject10.md)|  | 
 
 ### Return type
 
@@ -74,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateVolume**
-> Volume CreateVolume(ctx, body23)
+> Volume CreateVolume(ctx, optional)
 Create Volume
 
 Creates a Volume on your Account. In order for this to complete successfully, your User must have the `add_volumes` grant. Creating a new Volume will start accruing additional charges on your account. 
@@ -84,7 +100,14 @@ Creates a Volume on your Account. In order for this to complete successfully, yo
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body23** | [**Body23**](Body23.md)| The requested initial state of a new Volume. | 
+ **optional** | ***CreateVolumeOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a CreateVolumeOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inlineObject8** | [**optional.Interface of InlineObject8**](InlineObject8.md)|  | 
 
 ### Return type
 
@@ -232,7 +255,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ResizeVolume**
-> map[string]interface{} ResizeVolume(ctx, volumeId, body26)
+> map[string]interface{} ResizeVolume(ctx, volumeId, optional)
 Resize Volume
 
 Resize an existing Volume on your Account. In order for this request to complete successfully, your User must have the `read_write` permissions to the Volume. * Volumes can only be resized up. 
@@ -243,7 +266,15 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
   **volumeId** | **int32**| ID of the Volume to resize. | 
-  **body26** | [**Body26**](Body26.md)| The requested size to increase your Volume to. | 
+ **optional** | ***ResizeVolumeOpts** | optional parameters | nil if no parameters
+
+### Optional Parameters
+Optional parameters are passed through a pointer to a ResizeVolumeOpts struct
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **inlineObject11** | [**optional.Interface of InlineObject11**](InlineObject11.md)|  | 
 
 ### Return type
 

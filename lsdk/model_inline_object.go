@@ -9,212 +9,34 @@
 
 package openapi
 
-import (
-	"context"
-	"io/ioutil"
-	"net/http"
-	"net/url"
-	"strings"
-	"fmt"
-)
-
-// Linger please
-var (
-	_ context.Context
-)
-
-type RegionsApiService service
-
-/*
-RegionsApiService View Region
-Returns a single Region. 
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param regionId ID of the Region to look up.
-@return Region
-*/
-func (a *RegionsApiService) GetRegion(ctx context.Context, regionId string) (Region, *http.Response, error) {
-	var (
-		localVarHttpMethod   = strings.ToUpper("Get")
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  Region
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/regions/{regionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"regionId"+"}", fmt.Sprintf("%v", regionId), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	localVarHttpResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	if localVarHttpResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHttpResponse.Status,
-		}
-		if localVarHttpResponse.StatusCode == 200 {
-			var v Region
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		if localVarHttpResponse.StatusCode == 0 {
-			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHttpResponse, nil
-}
-
-/*
-RegionsApiService List Regions
-Lists the Regions available for Linode services. Not all services are guaranteed to be available in all Regions. 
- * @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return InlineResponse20035
-*/
-func (a *RegionsApiService) GetRegions(ctx context.Context) (InlineResponse20035, *http.Response, error) {
-	var (
-		localVarHttpMethod   = strings.ToUpper("Get")
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20035
-	)
-
-	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/regions"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	// to determine the Content-Type header
-	localVarHttpContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHttpContentType := selectHeaderContentType(localVarHttpContentTypes)
-	if localVarHttpContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHttpContentType
-	}
-
-	// to determine the Accept header
-	localVarHttpHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHttpHeaderAccept := selectHeaderAccept(localVarHttpHeaderAccepts)
-	if localVarHttpHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHttpHeaderAccept
-	}
-	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHttpMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHttpResponse, err := a.client.callAPI(r)
-	if err != nil || localVarHttpResponse == nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHttpResponse.Body)
-	localVarHttpResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHttpResponse, err
-	}
-
-	if localVarHttpResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHttpResponse.Status,
-		}
-		if localVarHttpResponse.StatusCode == 200 {
-			var v InlineResponse20035
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		if localVarHttpResponse.StatusCode == 0 {
-			var v InlineResponseDefault
-			err = a.client.decode(&v, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHttpResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHttpResponse, newErr
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHttpResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHttpResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHttpResponse, nil
+type InlineObject struct {
+	// A Backup ID from another Linode's available backups. Your User must have `read_write` access to that Linode, the Backup must have a `status` of `successful`, and the Linode must be deployed to the same `region` as the Backup. See [/linode/instances/{linodeId}/backups](/#operation/getBackups) for a Linode's available backups.  This field and the `image` field are mutually exclusive. 
+	BackupId int32 `json:"backup_id,omitempty"`
+	// If this field is set to `true`, the created Linode will automatically be enrolled in the Linode Backup service. This will incur an additional charge. The cost for the Backup service is dependent on the Type of Linode deployed.  This option is always treated as `true` if the account-wide `backups_enabled` setting is `true`.  See [account settings](/#operaton/getAccountSettings) for more information.  Backup pricing is included in the response from [/linodes/types](/#operation/getLinodeTypes) 
+	BackupsEnabled bool `json:"backups_enabled,omitempty"`
+	// When deploying from an Image, this field is optional, otherwise it is ignored. This is used to set the swap disk size for the newly-created Linode. 
+	SwapSize int32 `json:"swap_size,omitempty"`
+	// The [Linode Type](#operation/getLinodeTypes) of the Linode you are creating. 
+	Type string `json:"type"`
+	// The [Region](#operation/getRegions) where the Linode will be located. 
+	Region string `json:"region"`
+	// An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`. See [/images](/#operation/getImages) for more information on the Images available for you to use. 
+	Image string `json:"image,omitempty"`
+	// The password for the root user on the newly-created Linode. Only accepted if \"image\" is provided. 
+	RootPass string `json:"root_pass,omitempty"`
+	// A list of SSH public keys to deploy for the root user on the newly-created Linode.  Only accepted if `image` is provided. 
+	AuthorizedKeys []string `json:"authorized_keys,omitempty"`
+	// The StackScript to deploy to the newly-created Linode.  If provided, \"image\" must also be provided, and must be an Image that is compatible with this StackScript. 
+	StackscriptId int32 `json:"stackscript_id,omitempty"`
+	// An object containing responses to any User Defined Fields present in the StackScript being deployed to this Linode. Only accepted if `stackscript_id` is given.  The required values depend on the StackScript being deployed. 
+	StackscriptData map[string]interface{} `json:"stackscript_data,omitempty"`
+	// Whether to boot this Linode after the deploy is complete. Defaults to true if `image` is provided. Not accepted if not deploying from an Image. 
+	Booted bool `json:"booted,omitempty"`
+	Label Label `json:"label,omitempty"`
+	Tags Tags `json:"tags,omitempty"`
+	Group Group `json:"group,omitempty"`
+	// If true, the created Linode will have private networking enabled. 
+	PrivateIp bool `json:"private_ip,omitempty"`
+	// A list of usernames. If the usernames have associated SSH keys, the keys will be appended to the root users `~/.ssh/authorized_keys` file automatically. 
+	AuthorizedUsers []string `json:"authorized_users,omitempty"`
 }

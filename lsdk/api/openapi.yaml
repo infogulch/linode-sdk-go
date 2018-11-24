@@ -1695,7 +1695,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body'
+              properties:
+                username:
+                  description: |
+                    The new User's username. This is used for logging in, and may also be displayed alongside actions the User performs (for example, in Events or public StackScripts).
+                  example: example_user
+                  maxLength: 32
+                  minLength: 3
+                  pattern: ^[a-zA-Z0-9]((?![_-]{2,})[a-zA-Z0-9-_])+[a-zA-Z0-9]$
+                  type: string
+                email:
+                  description: |
+                    The new User's email address.
+                  example: example_user@linode.com
+                  format: email
+                  type: string
+                restricted:
+                  description: |
+                    If true, the new User must be granted access to perform actions or access entities on this Account. See [/account/users/{username}/grants](/#operation/getUserGrants) for details on how to configure grants for a restricted User.
+                  type: boolean
+              required:
+              - email
+              - username
         description: Information about the User to create.
       responses:
         200:
@@ -3112,10 +3133,104 @@ paths:
         tags on Linodes.
       operationId: createLinodeInstance
       requestBody:
+        $ref: '#/components/requestBodies/inline_object'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_1'
+              properties:
+                backup_id:
+                  description: |
+                    A Backup ID from another Linode's available backups. Your User must have
+                    `read_write` access to that Linode, the Backup must have a `status` of
+                    `successful`, and the Linode must be deployed to the same `region` as the Backup.
+                    See [/linode/instances/{linodeId}/backups](/#operation/getBackups)
+                    for a Linode's available backups.
+
+                    This field and the `image` field are mutually exclusive.
+                  example: 1234
+                  format: int32
+                  type: integer
+                backups_enabled:
+                  description: |
+                    If this field is set to `true`, the created Linode will automatically be
+                    enrolled in the Linode Backup service. This will incur an additional charge.
+                    The cost for the Backup service is dependent on the Type of Linode deployed.
+
+                    This option is always treated as `true` if the account-wide `backups_enabled`
+                    setting is `true`.  See [account settings](/#operaton/getAccountSettings)
+                    for more information.
+
+                    Backup pricing is included in the response from [/linodes/types](/#operation/getLinodeTypes)
+                  type: boolean
+                swap_size:
+                  default: 512
+                  description: |
+                    When deploying from an Image, this field is optional, otherwise it is ignored. This is used to set the swap disk size for the newly-created Linode.
+                  example: 512
+                  format: int32
+                  type: integer
+                type:
+                  description: |
+                    The [Linode Type](#operation/getLinodeTypes) of the Linode you are creating.
+                  example: g6-standard-2
+                  type: string
+                region:
+                  description: |
+                    The [Region](#operation/getRegions) where the Linode will be located.
+                  example: us-east
+                  type: string
+                image:
+                  description: |
+                    An Image ID to deploy the Disk from. Official Linode Images start with `linode/ `, while your Images start with `private/`.
+                    See [/images](/#operation/getImages) for more information on the Images available for you to use.
+                  example: linode/debian9
+                  type: string
+                root_pass:
+                  description: |
+                    The password for the root user on the newly-created Linode. Only accepted if "image" is provided.
+                  example: s3cureP@ssw0rd
+                  format: password
+                  type: string
+                authorized_keys:
+                  description: |
+                    A list of SSH public keys to deploy for the root user on the newly-created Linode.  Only accepted if `image` is provided.
+                  items:
+                    type: string
+                  type: array
+                stackscript_id:
+                  description: |
+                    The StackScript to deploy to the newly-created Linode.  If provided, "image" must also be provided, and must be an Image that is compatible with this StackScript.
+                  example: 10079
+                  format: int32
+                  type: integer
+                stackscript_data:
+                  description: |
+                    An object containing responses to any User Defined Fields present in the StackScript being deployed to this Linode. Only accepted if `stackscript_id` is given.  The required values depend on the StackScript being deployed.
+                  type: object
+                booted:
+                  description: |
+                    Whether to boot this Linode after the deploy is complete. Defaults to true if `image` is provided. Not accepted if not deploying from an Image.
+                  type: boolean
+                label:
+                  $ref: '#/components/schemas/Linode/properties/label'
+                tags:
+                  $ref: '#/components/schemas/Linode/properties/tags'
+                group:
+                  $ref: '#/components/schemas/Linode/properties/group'
+                private_ip:
+                  description: |
+                    If true, the created Linode will have private networking enabled.
+                  type: boolean
+                authorized_users:
+                  description: |
+                    A list of usernames. If the usernames have associated SSH keys, the keys will be appended to the root users `~/.ssh/authorized_keys` file automatically.
+                  items:
+                    type: string
+                  type: array
+              required:
+              - region
+              - type
+              type: object
         description: The requested initial state of a new Linode.
         required: true
       responses:
@@ -3446,10 +3561,19 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_1'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_2'
+              properties:
+                label:
+                  example: SnapshotLabel
+                  maxLength: 255
+                  minLength: 1
+                  type: string
+              required:
+              - label
+              type: object
         description: The label for the new snapshot.
         required: true
       responses:
@@ -3663,10 +3787,24 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_2'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_3'
+              properties:
+                linode_id:
+                  description: |
+                    The ID of the Linode to restore a Backup to.
+                  example: 234
+                  format: int32
+                  type: integer
+                overwrite:
+                  description: |
+                    If True, deletes all Disks and Configs on the target Linode before restoring.
+                  type: boolean
+              required:
+              - linode_id
+              type: object
         description: Parameters to provide when restoring the Backup.
         required: true
       responses:
@@ -3729,10 +3867,17 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_3'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_4'
+              properties:
+                config_id:
+                  description: |
+                    The Linode Config ID to boot into. If omitted, we will attempt to select a config to use. (This will do the right thing in most cases.)
+                  format: int32
+                  type: integer
+              type: object
         description: Optional configuration to boot into (see above).
         required: false
       responses:
@@ -3785,10 +3930,76 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_4'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_5'
+              properties:
+                region:
+                  description: |
+                    This is the Region where the Linode will be deployed.
+                    To view all available Regions you can deploy to see [/regions](/#operation/getRegions).
+                    * Region can only be provided when cloning to a new Linode.
+                  example: us-east
+                  type: string
+                type:
+                  description: |
+                    A Linode's Type determines what resources are available to
+                    it, including disk space, memory, and virtual cpus. The
+                    amounts available to a specific Linode are returned as
+                    `specs` on the Linode object.
+
+                    To view all available Linode Types you can deploy with
+                    see [/linode/types](/#operation/getLinodeTypes).
+
+                    * Type can only be provided when cloning to a new Linode.
+                  example: g6-standard-2
+                  type: string
+                linode_id:
+                  description: |
+                    If an existing Linode is to be the target for the clone, the ID of that Linode. The existing Linode must have enough resources to accept the clone.
+                  example: 124
+                  format: int32
+                  type: integer
+                label:
+                  description: |
+                    The label to assign this Linode when cloning to a new Linode.
+                    * Can only be provided when cloning to a new Linode. * Defaults to "linode".
+                  example: cloned-linode
+                  type: string
+                group:
+                  deprecated: true
+                  description: |
+                    A label used to group Linodes for display. Linodes are not required to have a group.
+                  example: Linode-Group
+                  type: string
+                backups_enabled:
+                  description: |
+                    If this field is set to `true`, the created Linode will
+                    automatically be enrolled in the Linode Backup service. This
+                    will incur an additional charge. Pricing is included in the
+                    response from
+                    [/linodes/types](/#operation/getLinodeTypes).
+
+                    * Can only be included when cloning to a new Linode.
+                  type: boolean
+                disks:
+                  description: |
+                    All disks attached to configs will be cloned from the source Linode if not provided.
+                  items:
+                    example: 25674
+                    format: int32
+                    type: integer
+                  type: array
+                configs:
+                  description: |
+                    All configs attached to will be cloned from the source Linode if not provided.
+                  items:
+                    example: 23456
+                    format: int32
+                    type: integer
+                  type: array
+              type: object
         description: The requested state your Linode will be cloned into.
         required: true
       responses:
@@ -4546,7 +4757,22 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_6'
+              properties:
+                password:
+                  description: |
+                    The new root password for the OS installed on this Disk.
+                    The password must contain at least two of these four character classes:
+
+                      * lowercase letters
+                      * uppercase letters
+                      * numbers
+                      * punctuation
+                  example: another@complex^Password123
+                  maxLength: 128
+                  minLength: 6
+                  type: string
+              required:
+              - password
         description: The new password.
         required: true
       responses:
@@ -4616,7 +4842,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_7'
+              properties:
+                size:
+                  description: |
+                    The desired size, in MB, of the disk.
+                  example: 2048
+                  format: int32
+                  minimum: 1
+                  type: integer
+              required:
+              - password
         description: The new size of the Disk.
         required: true
       responses:
@@ -4755,7 +4990,21 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_8'
+              properties:
+                type:
+                  description: |
+                    The type of address you are allocating. Only IPv4 addresses may be allocated through this endpoint.
+                  enum:
+                  - ipv4
+                  example: ipv4
+                  type: string
+                public:
+                  description: |
+                    Whether to create a public or private IPv4 address.
+                  type: boolean
+              required:
+              - public
+              - type
         description: Information about the address you are creating.
         required: true
       responses:
@@ -4932,7 +5181,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_9'
+              allOf:
+              - $ref: '#/components/schemas/IPAddress'
+              - type: object
+              properties:
+                rdns:
+                  example: linode.com
+                  type: string
         description: The information to update for the IP address.
       responses:
         200:
@@ -5170,7 +5425,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_10'
+              properties:
+                config_id:
+                  description: |
+                    The Linode Config ID to reboot into.  If null or omitted, the last booted config will be used.  If there was no last booted config and this Linode only has one config, it will be used.  If a config cannot be determined, an error will be returned.
+                  format: int32
+                  type: integer
         description: Optional reboot parameters.
       responses:
         200:
@@ -5230,7 +5490,18 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_11'
+              allOf:
+              - $ref: '#/components/schemas/LinodeRequest'
+              properties:
+                image:
+                  type: string
+                root_pass:
+                  format: password
+                  type: string
+              required:
+              - image
+              - root_pass
+              type: object
         description: The requested state your Linode will be rebuilt into.
         required: true
       responses:
@@ -5306,10 +5577,14 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_5'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_12'
+              properties:
+                devices:
+                  $ref: '#/components/schemas/RescueDevices'
+              type: object
         description: Optional object of devices to be mounted.
         required: false
       responses:
@@ -5380,10 +5655,19 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_6'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_13'
+              properties:
+                type:
+                  description: The ID representing the Linode Type.
+                  example: g6-standard-2
+                  type: string
+                  x-linode-cli-display: 1
+              required:
+              - type
+              type: object
         description: The Type your current Linode will resize to.
         required: true
       responses:
@@ -7586,7 +7870,28 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_14'
+              properties:
+                type:
+                  description: |
+                    The type of address you are requesting. Only IPv4 addresses may be allocated through this endpoint.
+                  enum:
+                  - ipv4
+                  example: ipv4
+                  type: string
+                public:
+                  description: |
+                    Whether to create a public or private IPv4 address.
+                  type: boolean
+                linode_id:
+                  description: |
+                    The ID of a Linode you you have access to that this address will be allocated to.
+                  example: 123
+                  format: int32
+                  type: integer
+              required:
+              - linode_id
+              - public
+              - type
         description: Information about the address you are creating.
         required: true
       responses:
@@ -7744,7 +8049,34 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_15'
+              properties:
+                region:
+                  description: |
+                    The ID of the Region in which these assignments are to take place.  All IPs and Linodes must exist in this Region.
+                  example: us-east
+                  type: string
+                assignments:
+                  description: |
+                    The list of assignments to make.  You must have read_write access to all IPs being assigned and all Linodes being assigned to in order for the assignments to succeed.
+                  items:
+                    properties:
+                      address:
+                        description: |
+                          Ths IP Address for this assignment. Must be a IPv4 address you can access in the Region specified. May be a public or private address.
+                        example: 12.34.56.78
+                        format: ip
+                        type: string
+                      linode_id:
+                        description: |
+                          The ID of the Linode to assign this address to. The IP's previous Linode will lose this address, and must end up with at least one public address and no more than one private address once all assignments have been made.
+                        example: 123
+                        format: int32
+                        type: integer
+                    type: object
+                  type: array
+              required:
+              - assignments
+              - region
         description: |
           Information about what IPv4 address to assign, and to which Linode.
         required: true
@@ -7810,7 +8142,24 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_16'
+              properties:
+                linode_id:
+                  description: |
+                    The ID of the Linode that the addresses will be shared with.
+                  example: 123
+                  format: int32
+                  type: integer
+                ips:
+                  description: |
+                    A list of IPs that will be shared with this Linode.  When this is finished, the given Linode will be able to bring up these addresses in addition to the Linodes that these addresses belong to.  You must have access to all of these addresses and they must be in the same Region as the Linode.
+                  items:
+                    example: 12.34.56.78
+                    format: ip
+                    type: string
+                  type: array
+              required:
+              - ips
+              - linode_id
         description: Information about what IPs to share with which Linode.
         required: true
       responses:
@@ -8039,7 +8388,33 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_17'
+              properties:
+                region:
+                  description: |
+                    The ID of the Region to create this NodeBalancer in.
+                  example: us-east
+                  type: string
+                label:
+                  $ref: '#/components/schemas/NodeBalancer/properties/label'
+                client_conn_throttle:
+                  $ref: '#/components/schemas/NodeBalancer/properties/client_conn_throttle'
+                configs:
+                  description: |
+                    The ports to configure this NodeBalancer with on creation. Each config must have a unique port and at least one Node.
+                  items:
+                    allOf:
+                    - $ref: '#/components/schemas/NodeBalancerConfig'
+                    - properties:
+                        nodes:
+                          description: |
+                            The NodeBalancer Nodes that serve this port.  When creating a NodeBalancer this way, at least one Node is required per configured port.
+                          items:
+                            $ref: '#/components/schemas/NodeBalancerNode'
+                          type: array
+                      type: object
+                  type: array
+              required:
+              - region
         description: Information about the NodeBalancer to create.
         required: true
       responses:
@@ -9364,7 +9739,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_18'
+              properties:
+                tfa_code:
+                  description: |
+                    The Two Factor code you generated with your Two Factor secret. These codes are time-based, so be sure it is current.
+                  example: "213456"
+                  type: string
         description: The Two Factor code you generated with your Two Factor secret.
         required: true
       responses:
@@ -9451,7 +9831,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_19'
+              properties:
+                scopes:
+                  description: |
+                    The scopes to create the token with.  These cannot be changed after creation, and may not exceed the scopes of the acting token. If omitted, the new token will have the same scopes as the acting token.
+                  example: '*'
+                  format: oauth-scope
+                  type: string
+                expiry:
+                  description: |
+                    When this token should be valid until.  If omitted, the new token will be valid until it is manually revoked.
+                  format: date-time
+                  type: string
+                label:
+                  $ref: '#/components/schemas/PersonalAccessToken/properties/label'
         description: Information about the requested token.
         required: true
       responses:
@@ -10142,7 +10535,14 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/body_20'
+              properties:
+                file:
+                  description: |
+                    The local, absolute path to the file you want to attach to your Support Ticket.
+                  example: /Users/LinodeGuy/pictures/screen_shot.jpg
+                  type: string
+              required:
+              - file
         description: Add an attachment.
         required: true
       responses:
@@ -10263,7 +10663,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_21'
+              properties:
+                description:
+                  description: |
+                    The content of your reply.
+                  example: |
+                    Thank you for your help. I was able to figure out what the problem was and I successfully reset my password. You guys are the best!
+                  maxLength: 65535
+                  minLength: 1
+                  type: string
+              required:
+              - description
         description: Add a reply.
         required: true
       responses:
@@ -10367,10 +10777,31 @@ paths:
         **Important**: You must be an unrestricted User in order to add or modify Tags.
       operationId: createTag
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_7'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_22'
+              properties:
+                label:
+                  description: |
+                    The new Tag.
+                  example: example tag
+                  maxLength: 30
+                  minLength: 3
+                  type: string
+                linodes:
+                  description: |
+                    A list of Linode IDs to apply the new Tag to.  You must be allowed to `read_write` all of the requested Linodes, or the Tag will not be created and an error will be returned.
+                  example:
+                  - 123
+                  - 456
+                  items:
+                    format: int32
+                    type: integer
+                  type: array
+              required:
+              - label
+              type: object
         description: |
           The tag to create, and optionally the objects to tag.
       responses:
@@ -10573,10 +11004,48 @@ paths:
         Creates a Volume on your Account. In order for this to complete successfully, your User must have the `add_volumes` grant. Creating a new Volume will start accruing additional charges on your account.
       operationId: createVolume
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_8'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_23'
+              properties:
+                region:
+                  description: |
+                    The Region to deploy this Volume in. This is only required if a linode_id is not given.
+                  type: string
+                linode_id:
+                  description: |
+                    The Linode this volume should be attached to upon creation. If not given, the volume will be created without an attachment.
+                  example: 123
+                  format: int32
+                  type: integer
+                size:
+                  default: 20
+                  description: |
+                    The initial size of this volume, in GB.  Be aware that volumes may only be resized up after creation.
+                  example: 20
+                  format: int32
+                  type: integer
+                label:
+                  description: |
+                    The Volume's label, which is also used in the `filesystem_path` of the resulting volume.
+                  example: my-volume
+                  maxLength: 32
+                  minLength: 1
+                  pattern: ^[a-zA-Z]((?!--|__)[a-zA-Z0-9-_])+$
+                  type: string
+                config_id:
+                  description: |
+                    When creating a Volume attached to a Linode, the ID of the Linode Config to include the new Volume in. This Config must belong to the Linode referenced by `linode_id`. Must _not_ be provided if `linode_id` is not sent. If a `linode_id` is sent without a `config_id`, the volume will be attached:
+
+                      * to the Linode's only config if it only has one config.
+                      * to the Linode's last used config, if possible.
+
+                    If no config can be selected for attachment, an error will be returned.
+                  example: 23456
+                  format: int32
+                  type: integer
+              type: object
         description: The requested initial state of a new Volume.
         required: true
       responses:
@@ -10839,10 +11308,24 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_9'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_24'
+              properties:
+                linode_id:
+                  allOf:
+                  - $ref: '#/components/schemas/Volume/properties/linode_id'
+                  readOnly: false
+                config_id:
+                  description: |
+                    The ID of the Linode Config to include this Volume in. Must belong to the Linode referenced by `linode_id`. If not given, the last booted Config will be chosen.
+                  example: 23456
+                  format: int32
+                  type: integer
+              required:
+              - linode
+              type: object
         description: Volume to attach to a Linode.
         required: true
       responses:
@@ -10899,10 +11382,16 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_10'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_25'
+              properties:
+                label:
+                  $ref: '#/components/schemas/Volume/properties/label'
+              required:
+              - label
+              type: object
         description: The requested state your Volume will be cloned into.
         required: true
       responses:
@@ -11007,10 +11496,16 @@ paths:
           type: integer
         style: simple
       requestBody:
+        $ref: '#/components/requestBodies/inline_object_11'
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/body_26'
+              properties:
+                size:
+                  $ref: '#/components/schemas/Volume/properties/size'
+              required:
+              - size
+              type: object
         description: The requested size to increase your Volume to.
         required: true
       responses:
@@ -11133,6 +11628,67 @@ components:
         minimum: 25
         type: integer
       style: form
+  requestBodies:
+    inline_object_1:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_1'
+    inline_object_9:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_9'
+    inline_object_10:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_10'
+    inline_object:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object'
+    inline_object_8:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_8'
+    inline_object_7:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_7'
+    inline_object_6:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_6'
+    inline_object_11:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_11'
+    inline_object_5:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_5'
+    inline_object_4:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_4'
+    inline_object_3:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_3'
+    inline_object_2:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_object_2'
   responses:
     ErrorResponse:
       content:
@@ -15296,7 +15852,6 @@ components:
           items:
             $ref: '#/components/schemas/ErrorObject'
           type: array
-      type: object
     inline_response_200:
       example:
         pages: '{}'
@@ -15344,7 +15899,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_1:
       example:
         pages: '{}'
@@ -15370,7 +15924,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_2:
       example:
         pages: '{}'
@@ -15402,7 +15955,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_3:
       example:
         pages: '{}'
@@ -15442,7 +15994,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_4:
       example:
         pages: '{}'
@@ -15474,7 +16025,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_5:
       example:
         pages: '{}'
@@ -15498,7 +16048,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_6:
       example:
         payment_id: PAY-1234567890ABCDEFGHIJKLMN
@@ -15508,7 +16057,6 @@ components:
             The paypal-generated ID for this Payment. Used when authorizing the Payment in PayPal's interface.
           example: PAY-1234567890ABCDEFGHIJKLMN
           type: string
-      type: object
     inline_response_200_7:
       example:
         pages: '{}'
@@ -15538,30 +16086,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body:
-      properties:
-        username:
-          description: |
-            The new User's username. This is used for logging in, and may also be displayed alongside actions the User performs (for example, in Events or public StackScripts).
-          example: example_user
-          maxLength: 32
-          minLength: 3
-          pattern: ^[a-zA-Z0-9]((?![_-]{2,})[a-zA-Z0-9-_])+[a-zA-Z0-9]$
-          type: string
-        email:
-          description: |
-            The new User's email address.
-          example: example_user@linode.com
-          format: email
-          type: string
-        restricted:
-          description: |
-            If true, the new User must be granted access to perform actions or access entities on this Account. See [/account/users/{username}/grants](/#operation/getUserGrants) for details on how to configure grants for a restricted User.
-          type: boolean
-      required:
-      - email
-      - username
     inline_response_200_8:
       example:
         pages: '{}'
@@ -15605,7 +16129,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_9:
       example:
         pages: '{}'
@@ -15645,7 +16168,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_10:
       example:
         pages: '{}'
@@ -15685,7 +16207,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_11:
       example:
         pages: '{}'
@@ -15769,8 +16290,7 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_1:
+    inline_object:
       properties:
         backup_id:
           description: |
@@ -15908,7 +16428,6 @@ components:
           $ref: '#/components/schemas/Backup'
         current:
           $ref: '#/components/schemas/Backup'
-      type: object
     inline_response_200_12:
       example:
         automatic:
@@ -15964,8 +16483,7 @@ components:
           type: array
         snapshot:
           $ref: '#/components/schemas/inline_response_200_12_snapshot'
-      type: object
-    body_2:
+    inline_object_1:
       properties:
         label:
           example: SnapshotLabel
@@ -15975,7 +16493,7 @@ components:
       required:
       - label
       type: object
-    body_3:
+    inline_object_2:
       properties:
         linode_id:
           description: |
@@ -15990,7 +16508,7 @@ components:
       required:
       - linode_id
       type: object
-    body_4:
+    inline_object_3:
       properties:
         config_id:
           description: |
@@ -15998,7 +16516,7 @@ components:
           format: int32
           type: integer
       type: object
-    body_5:
+    inline_object_4:
       properties:
         region:
           description: |
@@ -16160,7 +16678,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_14:
       example:
         pages: '{}'
@@ -16192,59 +16709,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_6:
-      properties:
-        password:
-          description: |
-            The new root password for the OS installed on this Disk.
-            The password must contain at least two of these four character classes:
-
-              * lowercase letters
-              * uppercase letters
-              * numbers
-              * punctuation
-          example: another@complex^Password123
-          maxLength: 128
-          minLength: 6
-          type: string
-      required:
-      - password
-    body_7:
-      properties:
-        size:
-          description: |
-            The desired size, in MB, of the disk.
-          example: 2048
-          format: int32
-          minimum: 1
-          type: integer
-      required:
-      - password
-    body_8:
-      properties:
-        type:
-          description: |
-            The type of address you are allocating. Only IPv4 addresses may be allocated through this endpoint.
-          enum:
-          - ipv4
-          example: ipv4
-          type: string
-        public:
-          description: |
-            Whether to create a public or private IPv4 address.
-          type: boolean
-      required:
-      - public
-      - type
-    body_9:
-      allOf:
-      - $ref: '#/components/schemas/IPAddress'
-      - type: object
-      properties:
-        rdns:
-          example: linode.com
-          type: string
     inline_response_200_15:
       example:
         pages: '{}'
@@ -16276,33 +16740,12 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_10:
-      properties:
-        config_id:
-          description: |
-            The Linode Config ID to reboot into.  If null or omitted, the last booted config will be used.  If there was no last booted config and this Linode only has one config, it will be used.  If a config cannot be determined, an error will be returned.
-          format: int32
-          type: integer
-    body_11:
-      allOf:
-      - $ref: '#/components/schemas/LinodeRequest'
-      properties:
-        image:
-          type: string
-        root_pass:
-          format: password
-          type: string
-      required:
-      - image
-      - root_pass
-      type: object
-    body_12:
+    inline_object_5:
       properties:
         devices:
           $ref: '#/components/schemas/RescueDevices'
       type: object
-    body_13:
+    inline_object_6:
       properties:
         type:
           description: The ID representing the Linode Type.
@@ -16347,7 +16790,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_17:
       example:
         pages: '{}'
@@ -16407,7 +16849,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_18:
       example:
         pages: '{}'
@@ -16459,7 +16900,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_19:
       example:
         pages: '{}'
@@ -16497,7 +16937,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_20:
       example:
         pages: '{}'
@@ -16527,7 +16966,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_21:
       example:
         pages: '{}'
@@ -16561,7 +16999,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_22:
       example:
         pages: '{}'
@@ -16583,7 +17020,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_23:
       example:
         pages: '{}'
@@ -16621,7 +17057,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_24:
       example:
         pages: '{}'
@@ -16655,7 +17090,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_25:
       example:
         pages: '{}'
@@ -16703,7 +17137,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_26:
       example:
         pages: '{}'
@@ -16739,80 +17172,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_14:
-      properties:
-        type:
-          description: |
-            The type of address you are requesting. Only IPv4 addresses may be allocated through this endpoint.
-          enum:
-          - ipv4
-          example: ipv4
-          type: string
-        public:
-          description: |
-            Whether to create a public or private IPv4 address.
-          type: boolean
-        linode_id:
-          description: |
-            The ID of a Linode you you have access to that this address will be allocated to.
-          example: 123
-          format: int32
-          type: integer
-      required:
-      - linode_id
-      - public
-      - type
-    networkingipv4assign_assignments:
-      properties:
-        address:
-          description: |
-            Ths IP Address for this assignment. Must be a IPv4 address you can access in the Region specified. May be a public or private address.
-          example: 12.34.56.78
-          format: ip
-          type: string
-        linode_id:
-          description: |
-            The ID of the Linode to assign this address to. The IP's previous Linode will lose this address, and must end up with at least one public address and no more than one private address once all assignments have been made.
-          example: 123
-          format: int32
-          type: integer
-      type: object
-    body_15:
-      properties:
-        region:
-          description: |
-            The ID of the Region in which these assignments are to take place.  All IPs and Linodes must exist in this Region.
-          example: us-east
-          type: string
-        assignments:
-          description: |
-            The list of assignments to make.  You must have read_write access to all IPs being assigned and all Linodes being assigned to in order for the assignments to succeed.
-          items:
-            $ref: '#/components/schemas/networkingipv4assign_assignments'
-          type: array
-      required:
-      - assignments
-      - region
-    body_16:
-      properties:
-        linode_id:
-          description: |
-            The ID of the Linode that the addresses will be shared with.
-          example: 123
-          format: int32
-          type: integer
-        ips:
-          description: |
-            A list of IPs that will be shared with this Linode.  When this is finished, the given Linode will be able to bring up these addresses in addition to the Linodes that these addresses belong to.  You must have access to all of these addresses and they must be in the same Region as the Linode.
-          items:
-            example: 12.34.56.78
-            format: ip
-            type: string
-          type: array
-      required:
-      - ips
-      - linode_id
     inline_response_200_27:
       example:
         pages: '{}'
@@ -16834,7 +17193,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_28:
       example:
         pages: '{}'
@@ -16856,7 +17214,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_29:
       example:
         pages: '{}'
@@ -16900,35 +17257,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_17:
-      properties:
-        region:
-          description: |
-            The ID of the Region to create this NodeBalancer in.
-          example: us-east
-          type: string
-        label:
-          $ref: '#/components/schemas/NodeBalancer/properties/label'
-        client_conn_throttle:
-          $ref: '#/components/schemas/NodeBalancer/properties/client_conn_throttle'
-        configs:
-          description: |
-            The ports to configure this NodeBalancer with on creation. Each config must have a unique port and at least one Node.
-          items:
-            allOf:
-            - $ref: '#/components/schemas/NodeBalancerConfig'
-            - properties:
-                nodes:
-                  description: |
-                    The NodeBalancer Nodes that serve this port.  When creating a NodeBalancer this way, at least one Node is required per configured port.
-                  items:
-                    $ref: '#/components/schemas/NodeBalancerNode'
-                  type: array
-              type: object
-          type: array
-      required:
-      - region
     inline_response_200_30:
       example:
         pages: '{}'
@@ -16988,7 +17316,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_31:
       example:
         pages: '{}'
@@ -17022,7 +17349,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_32:
       example:
         pages: '{}'
@@ -17054,14 +17380,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_18:
-      properties:
-        tfa_code:
-          description: |
-            The Two Factor code you generated with your Two Factor secret. These codes are time-based, so be sure it is current.
-          example: "213456"
-          type: string
     inline_response_200_33:
       example:
         pages: '{}'
@@ -17091,22 +17409,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_19:
-      properties:
-        scopes:
-          description: |
-            The scopes to create the token with.  These cannot be changed after creation, and may not exceed the scopes of the acting token. If omitted, the new token will have the same scopes as the acting token.
-          example: '*'
-          format: oauth-scope
-          type: string
-        expiry:
-          description: |
-            When this token should be valid until.  If omitted, the new token will be valid until it is manually revoked.
-          format: date-time
-          type: string
-        label:
-          $ref: '#/components/schemas/PersonalAccessToken/properties/label'
     inline_response_200_34:
       example:
         pages: '{}'
@@ -17132,7 +17434,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_35:
       example:
         pages: '{}'
@@ -17154,7 +17455,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
     inline_response_200_36:
       example:
         pages: '{}'
@@ -17212,16 +17512,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_20:
-      properties:
-        file:
-          description: |
-            The local, absolute path to the file you want to attach to your Support Ticket.
-          example: /Users/LinodeGuy/pictures/screen_shot.jpg
-          type: string
-      required:
-      - file
     inline_response_200_37:
       example:
         pages: '{}'
@@ -17253,19 +17543,6 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_21:
-      properties:
-        description:
-          description: |
-            The content of your reply.
-          example: |
-            Thank you for your help. I was able to figure out what the problem was and I successfully reset my password. You guys are the best!
-          maxLength: 65535
-          minLength: 1
-          type: string
-      required:
-      - description
     inline_response_200_38:
       example:
         pages: '{}'
@@ -17285,8 +17562,7 @@ components:
           $ref: '#/components/schemas/PaginationEnvelope/properties/pages'
         results:
           $ref: '#/components/schemas/PaginationEnvelope/properties/results'
-      type: object
-    body_22:
+    inline_object_7:
       properties:
         label:
           description: |
@@ -17308,7 +17584,7 @@ components:
       required:
       - label
       type: object
-    body_23:
+    inline_object_8:
       properties:
         region:
           description: |
@@ -17347,7 +17623,7 @@ components:
           format: int32
           type: integer
       type: object
-    body_24:
+    inline_object_9:
       properties:
         linode_id:
           allOf:
@@ -17362,14 +17638,14 @@ components:
       required:
       - linode
       type: object
-    body_25:
+    inline_object_10:
       properties:
         label:
           $ref: '#/components/schemas/Volume/properties/label'
       required:
       - label
       type: object
-    body_26:
+    inline_object_11:
       properties:
         size:
           $ref: '#/components/schemas/Volume/properties/size'
@@ -17391,7 +17667,6 @@ components:
           description: The expiration month and year of the credit card.
           example: 11/2022
           type: string
-      type: object
     Backup_disks:
       example:
         size: 9001
@@ -17407,7 +17682,6 @@ components:
         label:
           example: My Debian 9 Disk
           type: string
-      type: object
     Event_entity:
       description: |
         Detailed information about the Event's entity, including ID, type, label, and URL used to access it.
@@ -17437,7 +17711,6 @@ components:
             The URL where you can access the object this Event is for. If a relative URL, it is relative to the domain you retrieved the Event from.
           example: /v4/support/tickets/11111
           type: string
-      type: object
     GrantsResponse_global:
       description: |
         A structure containing the Account-level grants a User has.
@@ -17490,7 +17763,6 @@ components:
         add_volumes:
           description: If true, this User may add Volumes.
           type: boolean
-      type: object
     Linode_specs:
       description: Information about the resources available to this Linode.
       example:
@@ -17526,7 +17798,6 @@ components:
           format: int32
           readOnly: true
           type: integer
-      type: object
     Linode_alerts:
       example:
         transfer_quota: 80
@@ -17565,7 +17836,6 @@ components:
           example: 10000
           format: int32
           type: integer
-      type: object
     Linode_backups_schedule:
       example:
         window: W22
@@ -17623,7 +17893,6 @@ components:
           example: W22
           nullable: true
           type: string
-      type: object
     Linode_backups:
       description: |
         Information about this Linode's backups status. For information about available backups, see [/linode/instances/{linodeId}/backups](/#operation/getBackups).
@@ -17640,7 +17909,6 @@ components:
           type: boolean
         schedule:
           $ref: '#/components/schemas/Linode_backups_schedule'
-      type: object
     LinodeConfig_helpers:
       description: Helpers enabled when booting to this Linode Config.
       example:
@@ -17666,7 +17934,6 @@ components:
           description: |
             Populates the /dev directory early during boot without udev.  Defaults to false.
           type: boolean
-      type: object
     LinodeStats_io:
       description: Input/Output statistics.
       example:
@@ -17695,7 +17962,6 @@ components:
               type: number
             type: array
           type: array
-      type: object
     LinodeStats_netv4:
       description: IPv4 statistics.
       example:
@@ -17748,7 +18014,6 @@ components:
               type: number
             type: array
           type: array
-      type: object
     LinodeStats_netv6:
       description: IPv6 statistics.
       example:
@@ -17801,7 +18066,6 @@ components:
               type: number
             type: array
           type: array
-      type: object
     LinodeType_price:
       description: |
         Cost in US dollars, broken down into hourly and monthly charges.
@@ -17818,7 +18082,6 @@ components:
           example: 20
           format: int32
           type: integer
-      type: object
     LinodeType_addons_backups_price:
       description: Cost of enabling Backups for this Linode Type.
       example:
@@ -17836,7 +18099,6 @@ components:
           example: 5
           format: int32
           type: integer
-      type: object
     LinodeType_addons_backups:
       description: |
         Information about the optional Backup service offered for Linodes.
@@ -17847,7 +18109,6 @@ components:
       properties:
         price:
           $ref: '#/components/schemas/LinodeType_addons_backups_price'
-      type: object
     LinodeType_addons:
       description: |
         A list of optional add-on services for Linodes and their associated costs.
@@ -17859,7 +18120,6 @@ components:
       properties:
         backups:
           $ref: '#/components/schemas/LinodeType_addons_backups'
-      type: object
     LongviewClient_apps:
       description: |
         The apps this Client is monitoring on your Linode. This is configured when you install the Longview Client application, and is present here for information purposes only.
@@ -17883,7 +18143,6 @@ components:
             If True, the MySQL Longview Client modules is monitoring MySQL on your server.
           readOnly: true
           type: boolean
-      type: object
     LongviewSubscription_price:
       description: |
         Pricing information about this Subscription tier.
@@ -17903,7 +18162,6 @@ components:
           example: 40
           readOnly: true
           type: number
-      type: object
     ManagedContact_phone:
       description: |
         Information about how to reach this Contact by phone.
@@ -17924,7 +18182,6 @@ components:
           format: phone
           nullable: true
           type: string
-      type: object
     ManagedIssue_entity:
       description: |
         The ticket this Managed Issue opened.
@@ -17962,7 +18219,6 @@ components:
           format: url
           readOnly: true
           type: string
-      type: object
     ManagedLinodeSettings_ssh:
       description: |
         The SSH settings for this Linode.
@@ -17997,7 +18253,6 @@ components:
           maximum: 65535
           minimum: 1
           type: integer
-      type: object
     NodeBalancer_transfer:
       description: |
         Information about the amount of transfer this NodeBalancer has had so far this month.
@@ -18027,7 +18282,6 @@ components:
           nullable: true
           readOnly: true
           type: number
-      type: object
     NodeBalancerConfig_nodes_status:
       description: |
         A structure containing information about the health of the backends for this port.  This information is updated periodically as checks are performed against backends.
@@ -18049,7 +18303,6 @@ components:
           format: int32
           readOnly: true
           type: integer
-      type: object
     NodeBalancerStats_data_traffic:
       description: |
         Traffic statistics for this NodeBalancer.
@@ -18073,7 +18326,6 @@ components:
           items:
             type: number
           type: array
-      type: object
     NodeBalancerStats_data:
       description: |
         The data returned about this NodeBalancers.
@@ -18097,7 +18349,6 @@ components:
           type: array
         traffic:
           $ref: '#/components/schemas/NodeBalancerStats_data_traffic'
-      type: object
     Notification_entity:
       description: Detailed information about the Notification.
       example:
@@ -18126,7 +18377,6 @@ components:
             The URL where you can access the object this Notification is for. If a relative URL, it is relative to the domain you retrieved the Notification from.
           example: /support/tickets/3456
           type: string
-      type: object
     Profile_referrals:
       description: |
         Information about your status in our referral program.
@@ -18179,7 +18429,6 @@ components:
           format: int32
           readOnly: true
           type: integer
-      type: object
     SupportTicket_entity:
       description: |
         The entity this Ticket was opened for.
@@ -18214,7 +18463,6 @@ components:
           example: /v4/linode/instances/123456
           readOnly: true
           type: string
-      type: object
   securitySchemes:
     personalAccessToken:
       scheme: bearer

@@ -61,7 +61,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreatePersonalAccessToken**
-> PersonalAccessToken CreatePersonalAccessToken(ctx, body19)
+> PersonalAccessToken CreatePersonalAccessToken(ctx, uNKNOWNBASETYPE)
 Create Personal Access Token
 
 Creates a Personal Access Token for your User. The raw token will be returned in the response, but will never be returned again afterward so be sure to take note of it. You may create a token with _at most_ the scopes of your current token. The created token will be able to access your Account until the given expiry, or until it is revoked. 
@@ -71,7 +71,7 @@ Creates a Personal Access Token for your User. The raw token will be returned in
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body19** | [**Body19**](Body19.md)| Information about the requested token. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Information about the requested token. | 
 
 ### Return type
 
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **TfaConfirm**
-> map[string]interface{} TfaConfirm(ctx, body18)
+> map[string]interface{} TfaConfirm(ctx, uNKNOWNBASETYPE)
 Confirm/Enable Two Factor Authentication
 
 Confirms that you can successfully generate Two Factor codes and enables TFA on your Account. Once this is complete, login attempts from untrusted computers will be required to provide a Two Factor code before they are successful. 
@@ -411,7 +411,7 @@ Confirms that you can successfully generate Two Factor codes and enables TFA on 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **body18** | [**Body18**](Body18.md)| The Two Factor code you generated with your Two Factor secret. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| The Two Factor code you generated with your Two Factor secret. | 
 
 ### Return type
 
