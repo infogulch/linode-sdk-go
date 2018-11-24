@@ -17,6 +17,7 @@ Method | HTTP request | Description
 [**GetNodeBalancerNode**](NodeBalancersApi.md#GetNodeBalancerNode) | **Get** /nodebalancers/{nodeBalancerId}/configs/{configId}/nodes/{nodeId} | View Node
 [**GetNodeBalancers**](NodeBalancersApi.md#GetNodeBalancers) | **Get** /nodebalancers | List NodeBalancers
 [**NodebalancersNodeBalancerIdStatsGet**](NodeBalancersApi.md#NodebalancersNodeBalancerIdStatsGet) | **Get** /nodebalancers/{nodeBalancerId}/stats | View NodeBalancer Statistics
+[**RebuildNodeBalancerConfig**](NodeBalancersApi.md#RebuildNodeBalancerConfig) | **Post** /nodebalancers/{nodeBalancerId}/configs/{configId}/rebuild | Rebuild Config
 [**UpdateNodeBalancer**](NodeBalancersApi.md#UpdateNodeBalancer) | **Put** /nodebalancers/{nodeBalancerId} | Update NodeBalancer
 [**UpdateNodeBalancerConfig**](NodeBalancersApi.md#UpdateNodeBalancerConfig) | **Put** /nodebalancers/{nodeBalancerId}/configs/{configId} | Update Config
 [**UpdateNodeBalancerNode**](NodeBalancersApi.md#UpdateNodeBalancerNode) | **Put** /nodebalancers/{nodeBalancerId}/configs/{configId}/nodes/{nodeId} | Update Node
@@ -433,6 +434,36 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **RebuildNodeBalancerConfig**
+> NodeBalancer RebuildNodeBalancerConfig(ctx, nodeBalancerId, configId, uNKNOWNBASETYPE)
+Rebuild Config
+
+Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify. 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **nodeBalancerId** | **int32**| The ID of the NodeBalancer to access. | 
+  **configId** | **int32**| The ID of the Config to access. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Information about the NodeBalancer Config to rebuild.  | 
+
+### Return type
+
+[**NodeBalancer**](NodeBalancer.md)
+
+### Authorization
+
+[oauth](../README.md#oauth), [personalAccessToken](../README.md#personalAccessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **UpdateNodeBalancer**
 > NodeBalancer UpdateNodeBalancer(ctx, nodeBalancerId, nodeBalancer)
 Update NodeBalancer
@@ -483,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[oauth](../README.md#oauth)
+[oauth](../README.md#oauth), [personalAccessToken](../README.md#personalAccessToken)
 
 ### HTTP request headers
 

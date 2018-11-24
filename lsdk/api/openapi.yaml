@@ -17,7 +17,7 @@ info:
     This document was generated from our OpenAPI Specification.  See the
     [OpenAPI website](https://www.openapis.org) for more information.
 
-    [Download the Linode OpenAPI Specification](/openapi.yaml)
+    [Download the Linode OpenAPI Specification](/api/v4/openapi.yaml)
 
 
     # Changelog
@@ -80,7 +80,7 @@ info:
 
     ```json
     {
-      "scope": "linodes:create",
+      "scope": "linodes:read_write",
       "access_token": "03d084436a6c91fbafd5c4b20c82e5056a2e9ce1635920c30dc8d81dc7a6665c"
       "token_type": "bearer",
       "expires_in": 7200,
@@ -290,9 +290,9 @@ info:
     Endpoints that do not have CLI examples are currently unavailable through the CLI, but
     can be accessed via other methods such as Shell commands and other third-party applications.
   title: Linode API
-  version: 4.0.5
+  version: 4.0.9
   x-logo:
-    url: /linode-logo.svg
+    url: /api/v4/linode-logo.svg
     backgroundColor: '#fafafa'
 servers:
 - url: https://api.linode.com/v4
@@ -401,7 +401,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreditCard'
+              allOf:
+              - $ref: '#/components/schemas/CreditCard'
+              - properties:
+                  cvv:
+                    description: |
+                      The Card Verification Value on the back of the card.
+                    example: "123"
+                    type: string
         description: Update the credit card information associated with your Account.
         required: true
       responses:
@@ -2402,6 +2409,7 @@ paths:
       tags:
       - Domains
       x-linode-grant: read_write
+      x-linode-cli-command: domains
       x-linode-cli-action: import
       x-code-samples:
       - lang: Shell
@@ -3642,7 +3650,7 @@ paths:
       security:
       - personalAccessToken: []
       - oauth:
-        - linode:read_write
+        - linodes:read_write
       summary: Cancel Backups
       tags:
       - Linode Instances
@@ -4018,7 +4026,7 @@ paths:
       security:
       - personalAccessToken: []
       - oauth:
-        - linodes:create
+        - linodes:read_write
       summary: Clone Linode
       tags:
       - Linode Instances
@@ -4728,6 +4736,53 @@ paths:
         source: |
           linode-cli linodes disk-update 123 25674 \
             --label "Debian 9 Disk"
+    x-linode-cli-command: linodes
+  /linode/instances/{linodeId}/disks/{diskId}/clone:
+    post:
+      description: |
+        Copies a disk, byte-for-byte, into a new Disk belonging to the same Linode. The Linode must have enough storage space available to accept a new Disk of the same size as this one or this operation will fail.
+      operationId: cloneLinodeDisk
+      parameters:
+      - description: ID of the Linode to look up.
+        explode: false
+        in: path
+        name: linodeId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: ID of the Disk to clone.
+        explode: false
+        in: path
+        name: diskId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Disk'
+          description: Disk clone initiated.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_default'
+          description: Error
+      security:
+      - personalAccessToken: []
+      - oauth:
+        - linodes:read_write
+      summary: Clone Disk
+      tags:
+      - Linode Instances
+      x-linode-grant: read_write
+      x-linode-cli-action: disk-clone
     x-linode-cli-command: linodes
   /linode/instances/{linodeId}/disks/{diskId}/password:
     post:
@@ -5848,7 +5903,7 @@ paths:
       security:
       - personalAccessToken: []
       - oauth:
-        - linodes_read_only
+        - linodes:read_only
       summary: View Statistics (year/month)
       tags:
       - Linode Instances
@@ -5915,7 +5970,7 @@ paths:
       security:
       - personalAccessToken: []
       - oauth:
-        - linodes:read
+        - linodes:read_only
       summary: List Linode's Volumes
       tags:
       - Linode Instances
@@ -8916,7 +8971,7 @@ paths:
                 $ref: '#/components/schemas/inline_response_default'
           description: Error
       security:
-      - personlAccessToken: []
+      - personalAccessToken: []
       - oauth:
         - nodebalancers:read_write
       summary: Update Config
@@ -8947,6 +9002,134 @@ paths:
       - lang: CLI
         source: |
           linode-cli nodebalancers config-update \
+            12345 4567 \
+            --port 80 \
+            --protocol http \
+            --algorithm roundrobin \
+            --stickiness http_cookie \
+            --check http_body \
+            --check_interval 90 \
+            --check_timeout 10 \
+            --check_attempts 3 \
+            --check_path "/test" \
+            --check_body "it works" \
+            --check_passive true \
+            --cipher_suite recommended
+    x-linode-cli-command: nodebalancers
+  /nodebalancers/{nodeBalancerId}/configs/{configId}/rebuild:
+    post:
+      description: |
+        Rebuilds a NodeBalancer Config and its Nodes that you have permission to modify.
+      operationId: rebuildNodeBalancerConfig
+      parameters:
+      - description: The ID of the NodeBalancer to access.
+        explode: false
+        in: path
+        name: nodeBalancerId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      - description: The ID of the Config to access.
+        explode: false
+        in: path
+        name: configId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                configs:
+                  description: |
+                    Each config must have a unique port and at least one Node. Additionally:
+                      * Current Nodes excluded from the request body will be deleted.
+                      * Current Nodes (identified by their ID) will be updated.
+                      * New Nodes (included without an ID) will be created.
+                  items:
+                    allOf:
+                    - $ref: '#/components/schemas/NodeBalancerConfig'
+                    - properties:
+                        nodes:
+                          description: |
+                            The NodeBalancer Node(s) that serve this port. At least one Node is required per configured port.
+                            Some considerations for Nodes when rebuilding a config:
+                              * Current Nodes excluded from the request body will be deleted.
+                              * Current Nodes (identified by their ID) will be updated.
+                              * New Nodes (included without an ID) will be created.
+                          items:
+                            $ref: '#/components/schemas/NodeBalancerNode'
+                          type: array
+                      type: object
+                  type: array
+        description: |
+          Information about the NodeBalancer Config to rebuild.
+        required: true
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NodeBalancer'
+          description: NodeBalancer created successfully.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_default'
+          description: Error
+      security:
+      - personalAccessToken: []
+      - oauth:
+        - nodebalancers:read_write
+      summary: Rebuild Config
+      tags:
+      - NodeBalancers
+      x-linode-grant: add_nodebalancers
+      x-linode-cli-action: rebuild
+      x-code-samples:
+      - lang: Shell
+        source: |
+          curl -H "Content-Type: application/json" \
+              -H "Authorization: Bearer $TOKEN" \
+              -X POST -d '{
+                "port": 80,
+                "protocol": "http",
+                "algorithm": "roundrobin",
+                "stickiness": "http_cookie",
+                "check": "http_body",
+                "check_interval": 90,
+                "check_timeout": 10,
+                "check_attempts": 3,
+                "check_path": "/test",
+                "check_body": "it works",
+                "check_passive": true,
+                "cipher_suite": "recommended",
+                "nodes": [
+                  {
+                    "id": 543231,
+                    "address": "192.168.210.120:80",
+                    "label": "node54321",
+                    "weight": 50,
+                    "mode": "accept"
+                  },
+                  {
+                    "address": "192.168.210.122:81",
+                    "label": "thenewnode",
+                    "weight": 50,
+                    "mode": "accept"
+                  },
+                ]
+              }' \
+              https://api.linode.com/v4/nodebalancers/12345/configs/4567/rebuild
+      - lang: CLI
+        source: |
+          linode-cli nodebalancers config-rebuild \
             12345 4567 \
             --port 80 \
             --protocol http \
@@ -10520,6 +10703,7 @@ paths:
     post:
       description: |
         Adds a file attachment to an existing Support Ticket on your Account. File attachments are used to assist our Support team in resolving your Ticket. Examples of attachments are screen shots and text files that provide additional information.
+        Note: Accepted file extensions include: .gif, .jpg, .jpeg, .pjpg, .pjpeg, .tif, .tiff, .png, .pdf, or .txt.
       operationId: createTicketAttachment
       parameters:
       - description: The ID of the Support Ticket.
@@ -10571,11 +10755,57 @@ paths:
       x-code-samples:
       - lang: Shell
         source: |
-          curl -H "Content-Type: application/json" \
-              -H "Authorization: Bearer $TOKEN" \
-              -X POST ' \
-              -F file=/Users/LinodeGuy/pictures/screen_shot.jpg \
+          curl -H "Authorization: Bearer $TOKEN" \
+              -X POST \
+              -F 'file=/Users/LinodeGuy/pictures/screen_shot.jpg' \
               https://api.linode.com/v4/support/tickets/11223344/attachments
+    x-linode-cli-command: tickets
+  /support/tickets/{ticketId}/close:
+    post:
+      description: |
+        Closes a Support Ticket you have access to modify.
+      operationId: closeTicket
+      parameters:
+      - description: The ID of the Support Ticket.
+        explode: false
+        in: path
+        name: ticketId
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Support Ticket closed successfully.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_default'
+          description: Error
+      security:
+      - personalAccessToken: []
+      - oauth:
+        - account:read_write
+      summary: Close Support Ticket
+      tags:
+      - Support
+      x-linode-grant: read_write
+      x-linode-cli-action: close
+      x-code-samples:
+      - lang: Shell
+        source: |
+          curl -H "Authorization: Bearer $TOKEN" \
+              -X POST \
+              https://api.linode.com/v4/tickets/11223344/close
+      - lang: CLI
+        source: |
+          linode-cli tickets close 11223344
     x-linode-cli-command: tickets
   /support/tickets/{ticketId}/replies:
     get:
@@ -10799,6 +11029,26 @@ paths:
                     format: int32
                     type: integer
                   type: array
+                domains:
+                  description: |
+                    A list of Domain IDs to apply the new Tag to.  You must be allowed to `read_write` all of the requested Domains, or the Tag will not be created and an error will be returned.
+                  example:
+                  - 564
+                  - 565
+                  items:
+                    format: int32
+                    type: integer
+                  type: array
+                volumes:
+                  description: |
+                    A list of Volume IDs to apply the new Tag to.  You must be allowed to `read_write` all of the requested Volumes, or the Tag will not be created and an error will be returned.
+                  example:
+                  - 9082
+                  - 10003
+                  items:
+                    format: int32
+                    type: integer
+                  type: array
               required:
               - label
               type: object
@@ -10914,6 +11164,8 @@ paths:
                             propertyName: type
                           oneOf:
                           - $ref: '#/components/schemas/Linode'
+                          - $ref: '#/components/schemas/Domain'
+                          - $ref: '#/components/schemas/Volume'
                       type: object
                     type: array
                   page:
@@ -11045,6 +11297,16 @@ paths:
                   example: 23456
                   format: int32
                   type: integer
+                tags:
+                  description: |
+                    An array of Tags applied to this object.  Tags are for organizational purposes only.
+                  example:
+                  - example tag
+                  - another example
+                  items:
+                    type: string
+                  type: array
+                  x-linode-filterable: true
               type: object
         description: The requested initial state of a new Volume.
         required: true
@@ -11987,10 +12249,6 @@ components:
     CreditCard:
       description: |
         An object representing the credit card information you have on file with Linode to make Payments against your Account.
-      example:
-        expiry_month: 12
-        card_number: "4111111111111111"
-        expiry_year: 2020
       properties:
         card_number:
           description: Your credit card number. No spaces or dashes allowed.
@@ -12267,6 +12525,9 @@ components:
         description: description
         type: master
         axfr_ips: []
+        tags:
+        - example tag
+        - another example
         expire_sec: 300
         master_ips: []
         domain: example.org
@@ -12379,6 +12640,16 @@ components:
           example: 300
           format: int32
           type: integer
+        tags:
+          description: |
+            An array of tags applied to this object.  Tags are for organizational purposes only.
+          example:
+          - example tag
+          - another example
+          items:
+            type: string
+          type: array
+          x-linode-filterable: true
       required:
       - domain
       - id
@@ -12502,7 +12773,7 @@ components:
         A collection of Event objects. An Event is an action taken against an entity related to your Account. For example, booting a Linode would create an Event.
         The Events returned depends on your grants.
       example:
-        time_remaining: 6
+        time_remaining: time_remaining
         read: true
         rate: rate
         created: 2000-01-23T04:56:07.000+00:00
@@ -12636,10 +12907,10 @@ components:
             default_: white
         time_remaining:
           description: |
-            The estimated time remaining until the completion of this Event. This value is only returned for in-progress events.
-          format: int32
+            The estimated time remaining until the completion of this Event. This value is only returned for some in-progress migration events. For all other in-progress events, the `percent_complete` attribute will indicate about how much more work is to be done.
+          nullable: true
           readOnly: true
-          type: integer
+          type: string
         username:
           description: |
             The username of the User who caused the Event.
@@ -14756,6 +15027,7 @@ components:
         until: 2000-01-23T04:56:07.000+00:00
         label: You have an important ticket open!
         message: You have an important ticket open!
+        body: body
         type: ticket_important
         when: 2000-01-23T04:56:07.000+00:00
         entity:
@@ -14779,10 +15051,17 @@ components:
           readOnly: true
           type: string
           x-linode-cli-display: 2
+        body:
+          description: |
+            A full description of this Notification, in markdown format.  Not all Notifications include bodies.
+          nullable: true
+          readOnly: true
+          type: string
         type:
           description: The type of Notification this is.
           enum:
           - migration_scheduled
+          - migration_imminent
           - migration_pending
           - reboot_scheduled
           - outage
@@ -14790,6 +15069,7 @@ components:
           - ticket_important
           - ticket_abuse
           - notice
+          - maintenance
           example: ticket_important
           readOnly: true
           type: string
@@ -15077,6 +15357,7 @@ components:
           description: |
             When this token will expire.  Personal Access Tokens cannot be renewed, so after this time the token will be completely unusable and a new token will need to be generated.  Tokens may be created with "null" as their expiry and will never expire unless revoked.
           format: date-time
+          readOnly: true
           type: string
           x-linode-cli-display: 6
       type: object
@@ -15347,12 +15628,13 @@ components:
         attachments:
         - '["screenshot.jpg","screenshot.txt"]'
         - '["screenshot.jpg","screenshot.txt"]'
-        opened_by: some_user
-        updated_by: some_other_user
-        closed: 2000-01-23T04:56:07.000+00:00
+        closable: true
         description: |
           I'm having trouble setting the root password on my Linode. I tried following the instructions but something is not working and I'm not sure what I'm doing wrong. Can you please help me figure out how I can reset it?
         opened: 2000-01-23T04:56:07.000+00:00
+        opened_by: some_user
+        updated_by: some_other_user
+        closed: 2000-01-23T04:56:07.000+00:00
         id: 11223344
         gravatar_id: 474a1b7373ae0be4132649e69c36ce30
         updated: 2000-01-23T04:56:07.000+00:00
@@ -15387,6 +15669,10 @@ components:
           readOnly: true
           type: string
           x-linode-filterable: true
+        closable:
+          description: |
+            Whether the Support Ticket may be closed.
+          type: boolean
         description:
           description: |
             The full details of the issue or question.
@@ -15767,6 +16053,9 @@ components:
         region: '{}'
         updated: 2000-01-23T04:56:07.000+00:00
         status: active
+        tags:
+        - example tag
+        - another example
       properties:
         id:
           description: The unique ID of this Volume.
@@ -15843,6 +16132,16 @@ components:
           format: date-time
           readOnly: true
           type: string
+        tags:
+          description: |
+            An array of Tags applied to this object.  Tags are for organizational purposes only.
+          example:
+          - example tag
+          - another example
+          items:
+            type: string
+          type: array
+          x-linode-filterable: true
       required:
       - label
       type: object
@@ -15856,7 +16155,7 @@ components:
       example:
         pages: '{}'
         data:
-        - time_remaining: 6
+        - time_remaining: time_remaining
           read: true
           rate: rate
           created: 2000-01-23T04:56:07.000+00:00
@@ -15871,7 +16170,7 @@ components:
           seen: true
           status: failed
           username: exampleUser
-        - time_remaining: 6
+        - time_remaining: time_remaining
           read: true
           rate: rate
           created: 2000-01-23T04:56:07.000+00:00
@@ -15963,6 +16262,7 @@ components:
           until: 2000-01-23T04:56:07.000+00:00
           label: You have an important ticket open!
           message: You have an important ticket open!
+          body: body
           type: ticket_important
           when: 2000-01-23T04:56:07.000+00:00
           entity:
@@ -15974,6 +16274,7 @@ components:
           until: 2000-01-23T04:56:07.000+00:00
           label: You have an important ticket open!
           message: You have an important ticket open!
+          body: body
           type: ticket_important
           when: 2000-01-23T04:56:07.000+00:00
           entity:
@@ -16093,6 +16394,9 @@ components:
         - description: description
           type: master
           axfr_ips: []
+          tags:
+          - example tag
+          - another example
           expire_sec: 300
           master_ips: []
           domain: example.org
@@ -16106,6 +16410,9 @@ components:
         - description: description
           type: master
           axfr_ips: []
+          tags:
+          - example tag
+          - another example
           expire_sec: 300
           master_ips: []
           domain: example.org
@@ -16768,6 +17075,9 @@ components:
           region: '{}'
           updated: 2000-01-23T04:56:07.000+00:00
           status: active
+          tags:
+          - example tag
+          - another example
         - size: 30
           created: 2000-01-23T04:56:07.000+00:00
           filesystem_path: /dev/disk/by-id/scsi-0Linode_Volume_my-volume
@@ -16777,6 +17087,9 @@ components:
           region: '{}'
           updated: 2000-01-23T04:56:07.000+00:00
           status: active
+          tags:
+          - example tag
+          - another example
         page: '{}'
         results: '{}'
       properties:
@@ -17464,12 +17777,13 @@ components:
           attachments:
           - '["screenshot.jpg","screenshot.txt"]'
           - '["screenshot.jpg","screenshot.txt"]'
-          opened_by: some_user
-          updated_by: some_other_user
-          closed: 2000-01-23T04:56:07.000+00:00
+          closable: true
           description: |
             I'm having trouble setting the root password on my Linode. I tried following the instructions but something is not working and I'm not sure what I'm doing wrong. Can you please help me figure out how I can reset it?
           opened: 2000-01-23T04:56:07.000+00:00
+          opened_by: some_user
+          updated_by: some_other_user
+          closed: 2000-01-23T04:56:07.000+00:00
           id: 11223344
           gravatar_id: 474a1b7373ae0be4132649e69c36ce30
           updated: 2000-01-23T04:56:07.000+00:00
@@ -17484,12 +17798,13 @@ components:
           attachments:
           - '["screenshot.jpg","screenshot.txt"]'
           - '["screenshot.jpg","screenshot.txt"]'
-          opened_by: some_user
-          updated_by: some_other_user
-          closed: 2000-01-23T04:56:07.000+00:00
+          closable: true
           description: |
             I'm having trouble setting the root password on my Linode. I tried following the instructions but something is not working and I'm not sure what I'm doing wrong. Can you please help me figure out how I can reset it?
           opened: 2000-01-23T04:56:07.000+00:00
+          opened_by: some_user
+          updated_by: some_other_user
+          closed: 2000-01-23T04:56:07.000+00:00
           id: 11223344
           gravatar_id: 474a1b7373ae0be4132649e69c36ce30
           updated: 2000-01-23T04:56:07.000+00:00
@@ -17581,6 +17896,26 @@ components:
             format: int32
             type: integer
           type: array
+        domains:
+          description: |
+            A list of Domain IDs to apply the new Tag to.  You must be allowed to `read_write` all of the requested Domains, or the Tag will not be created and an error will be returned.
+          example:
+          - 564
+          - 565
+          items:
+            format: int32
+            type: integer
+          type: array
+        volumes:
+          description: |
+            A list of Volume IDs to apply the new Tag to.  You must be allowed to `read_write` all of the requested Volumes, or the Tag will not be created and an error will be returned.
+          example:
+          - 9082
+          - 10003
+          items:
+            format: int32
+            type: integer
+          type: array
       required:
       - label
       type: object
@@ -17622,6 +17957,16 @@ components:
           example: 23456
           format: int32
           type: integer
+        tags:
+          description: |
+            An array of Tags applied to this object.  Tags are for organizational purposes only.
+          example:
+          - example tag
+          - another example
+          items:
+            type: string
+          type: array
+          x-linode-filterable: true
       type: object
     inline_object_9:
       properties:
@@ -17773,7 +18118,7 @@ components:
       properties:
         disk:
           description: |
-            The amount of storage space, in GB. this Linode has access to. A typical Linode will divide this space between a primary disk with an `image` deployed to it, and a swap disk, usually 512 MB. This is the default configuration created when deploying a Linode with an `image` through [POST /linode/instances](/#operation/createLinodeInstance). While this configuration is suitable for 99% of use cases, if you need finer control over your Linode's disks, see the [/linode/instances/{linodeId}/disks](/#operation/getLinodeDisks) endpoints.
+            The amount of storage space, in MB, this Linode has access to. A typical Linode will divide this space between a primary disk with an `image` deployed to it, and a swap disk, usually 512 MB. This is the default configuration created when deploying a Linode with an `image` through [POST /linode/instances](/#operation/createLinodeInstance). While this configuration is suitable for 99% of use cases, if you need finer control over your Linode's disks, see the [/linode/instances/{linodeId}/disks](/#operation/getLinodeDisks) endpoints.
           example: 30720
           format: int32
           readOnly: true

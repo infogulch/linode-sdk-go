@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **Id** | **int32** | The ID of the Support Ticket.  | [optional] 
 **Attachments** | **[]string** | A list of filenames representing attached files associated with this Ticket.  | [optional] 
 **Closed** | [**time.Time**](time.Time.md) | The date and time this Ticket was closed.  | [optional] 
+**Closable** | **bool** | Whether the Support Ticket may be closed.  | [optional] 
 **Description** | **string** | The full details of the issue or question.  | [optional] 
 **Entity** | [**SupportTicketEntity**](SupportTicket_entity.md) |  | [optional] 
 **GravatarId** | **string** | The Gravatar ID of the User who opened this Ticket.  | [optional] 

@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateCreditCard**
-> map[string]interface{} CreateCreditCard(ctx, creditCard)
+> map[string]interface{} CreateCreditCard(ctx, uNKNOWNBASETYPE)
 Add/Edit Credit Card
 
 Adds/edit credit card information to your Account. Only one credit card can be associated with your Account, so using this endpoint will overwrite your currently active card information with the new credit card. 
@@ -86,7 +86,7 @@ Adds/edit credit card information to your Account. Only one credit card can be a
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **creditCard** | [**CreditCard**](CreditCard.md)| Update the credit card information associated with your Account. | 
+  **uNKNOWNBASETYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Update the credit card information associated with your Account. | 
 
 ### Return type
 

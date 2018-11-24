@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **LinodeId** | **int32** | If a Volume is attached to a specific Linode, the ID of that Linode will be displayed here.  | [optional] 
 **Created** | [**time.Time**](time.Time.md) | When this Volume was created. | [optional] 
 **Updated** | [**time.Time**](time.Time.md) | When this Volume was last updated. | [optional] 
+**Tags** | **[]string** | An array of Tags applied to this object.  Tags are for organizational purposes only.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Read** | **bool** | If this Event has been read. | [optional] 
 **Seen** | **bool** | If this Event has been seen. | [optional] 
 **Status** | **string** | The current status of this Event. | [optional] 
-**TimeRemaining** | **int32** | The estimated time remaining until the completion of this Event. This value is only returned for in-progress events.  | [optional] 
+**TimeRemaining** | **string** | The estimated time remaining until the completion of this Event. This value is only returned for some in-progress migration events. For all other in-progress events, the &#x60;percent_complete&#x60; attribute will indicate about how much more work is to be done.  | [optional] 
 **Username** | **string** | The username of the User who caused the Event.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

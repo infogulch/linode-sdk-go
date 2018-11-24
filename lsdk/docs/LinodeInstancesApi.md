@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**AddLinodeIP**](LinodeInstancesApi.md#AddLinodeIP) | **Post** /linode/instances/{linodeId}/ips | Allocate IPv4 Address
 [**BootLinodeInstance**](LinodeInstancesApi.md#BootLinodeInstance) | **Post** /linode/instances/{linodeId}/boot | Boot Linode
 [**CancelBackups**](LinodeInstancesApi.md#CancelBackups) | **Post** /linode/instances/{linodeId}/backups/cancel | Cancel Backups
+[**CloneLinodeDisk**](LinodeInstancesApi.md#CloneLinodeDisk) | **Post** /linode/instances/{linodeId}/disks/{diskId}/clone | Clone Disk
 [**CloneLinodeInstance**](LinodeInstancesApi.md#CloneLinodeInstance) | **Post** /linode/instances/{linodeId}/clone | Clone Linode
 [**CreateLinodeInstance**](LinodeInstancesApi.md#CreateLinodeInstance) | **Post** /linode/instances | Create Linode
 [**CreateSnapshot**](LinodeInstancesApi.md#CreateSnapshot) | **Post** /linode/instances/{linodeId}/backups | Create Snapshot
@@ -188,6 +189,35 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**map[string]interface{}**](map[string]interface{}.md)
+
+### Authorization
+
+[oauth](../README.md#oauth), [personalAccessToken](../README.md#personalAccessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **CloneLinodeDisk**
+> Disk CloneLinodeDisk(ctx, linodeId, diskId)
+Clone Disk
+
+Copies a disk, byte-for-byte, into a new Disk belonging to the same Linode. The Linode must have enough storage space available to accept a new Disk of the same size as this one or this operation will fail. 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **linodeId** | **int32**| ID of the Linode to look up. | 
+  **diskId** | **int32**| ID of the Disk to clone. | 
+
+### Return type
+
+[**Disk**](Disk.md)
 
 ### Authorization
 

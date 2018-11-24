@@ -4,6 +4,7 @@ All URIs are relative to *https://api.linode.com/v4*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CloseTicket**](SupportApi.md#CloseTicket) | **Post** /support/tickets/{ticketId}/close | Close Support Ticket
 [**CreateTicket**](SupportApi.md#CreateTicket) | **Post** /support/tickets | Open Support Ticket
 [**CreateTicketAttachment**](SupportApi.md#CreateTicketAttachment) | **Post** /support/tickets/{ticketId}/attachments | Create Ticket Attachment
 [**CreateTicketReply**](SupportApi.md#CreateTicketReply) | **Post** /support/tickets/{ticketId}/replies | Create Reply
@@ -11,6 +12,34 @@ Method | HTTP request | Description
 [**GetTicketReplies**](SupportApi.md#GetTicketReplies) | **Get** /support/tickets/{ticketId}/replies | List Replies
 [**GetTickets**](SupportApi.md#GetTickets) | **Get** /support/tickets | List Support Tickets
 
+
+# **CloseTicket**
+> map[string]interface{} CloseTicket(ctx, ticketId)
+Close Support Ticket
+
+Closes a Support Ticket you have access to modify. 
+
+### Required Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+  **ticketId** | **int32**| The ID of the Support Ticket. | 
+
+### Return type
+
+[**map[string]interface{}**](map[string]interface{}.md)
+
+### Authorization
+
+[oauth](../README.md#oauth), [personalAccessToken](../README.md#personalAccessToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **CreateTicket**
 > SupportTicket CreateTicket(ctx, optional)
@@ -51,7 +80,7 @@ Name | Type | Description  | Notes
 > map[string]interface{} CreateTicketAttachment(ctx, ticketId, file)
 Create Ticket Attachment
 
-Adds a file attachment to an existing Support Ticket on your Account. File attachments are used to assist our Support team in resolving your Ticket. Examples of attachments are screen shots and text files that provide additional information. 
+Adds a file attachment to an existing Support Ticket on your Account. File attachments are used to assist our Support team in resolving your Ticket. Examples of attachments are screen shots and text files that provide additional information. Note: Accepted file extensions include: .gif, .jpg, .jpeg, .pjpg, .pjpeg, .tif, .tiff, .png, .pdf, or .txt. 
 
 ### Required Parameters
 
